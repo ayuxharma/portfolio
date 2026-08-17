@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ayush Sharma — Software Engineer</title>
 <meta name="description" content="Portfolio of Ayush Sharma, Associate Software Engineer at Oracle, building practical software, AI systems, and cloud infrastructure.">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -40,7 +41,7 @@
   html[data-theme="light"] nav{background:rgba(250,250,250,0.72);}
   html[data-theme="light"] .btn-primary{color:#fafafa;}
   html{transition:background-color .25s ease;}
-  body,nav,.terminal,.skills-panel,.stat-card,.file-list,.cert-list,.modal-panel{
+  body,nav,.terminal,.skills-panel,.stat-card,.file-list,.cert-card,.achievement-card,.modal-panel{
     transition:background-color .25s ease, border-color .25s ease, color .25s ease;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -234,7 +235,7 @@
   .timeline-points{max-width:780px;padding-left:18px;color:var(--text-muted);font-size:14px;line-height:1.7;}
   .timeline-points li{margin:8px 0;}
 
-  /* STATS — GitHub / LeetCode */
+  /* STATS — GitHub / LeetCode / LinkedIn */
   .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
   .stat-card{border:1px solid var(--border);border-radius:12px;padding:28px;background:var(--surface);}
   .stat-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
@@ -250,6 +251,10 @@
   .stat-bar-track{flex:1;height:5px;background:var(--surface-2);border-radius:3px;overflow:hidden;}
   .stat-bar-fill{height:100%;background:var(--accent);border-radius:3px;}
   .stat-bar-row .pct{width:34px;text-align:right;flex-shrink:0;}
+  .stat-card-wide{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;}
+  .stat-card-wide .stat-card-head{margin-bottom:0;}
+  .linkedin-metric{display:flex;align-items:baseline;gap:12px;min-width:180px;justify-content:flex-end;}
+  .linkedin-metric .stat-num{font-size:40px;}
 
   /* SKILLS — stack.json code viewer */
   .skills-panel{
@@ -282,10 +287,8 @@
   .skills-code .line{display:flex;gap:10px;opacity:0;transform:translateX(-6px);
     animation:codeIn .35s ease forwards;}
   .skills-code .ln{color:var(--text-faint);width:16px;flex-shrink:0;text-align:right;user-select:none;}
-  .skills-code .val{color:var(--text);}
-  .skills-code .bar-track{display:inline-block;width:70px;height:4px;background:var(--surface-2);
-    border-radius:2px;overflow:hidden;margin-left:10px;vertical-align:middle;}
-  .skills-code .bar-fill{display:block;height:100%;background:var(--accent);border-radius:2px;}
+  .skills-code .val{color:var(--text);white-space:pre-wrap;}
+  .skills-code .line:nth-child(2) .val{color:var(--accent);}
   @keyframes codeIn{to{opacity:1;transform:translateX(0);}}
 
   @media(max-width:640px){
@@ -295,16 +298,21 @@
   }
 
   /* CERTIFICATIONS */
-  .cert-list{border:1px solid var(--border);border-radius:12px;overflow:hidden;}
-  .cert-row{display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:20px;
-    padding:20px 24px;border-bottom:1px solid var(--border);transition:background .2s;}
-  .cert-row:last-child{border-bottom:none;}
-  .cert-row:hover{background:var(--surface);}
-  .cert-badge{width:40px;height:40px;border-radius:8px;background:var(--surface-2);border:1px solid var(--border);
-    display:flex;align-items:center;justify-content:center;font-size:16px;}
-  .cert-name{font-size:15px;font-weight:600;margin-bottom:3px;}
-  .cert-issuer{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);}
-  .cert-date{font-family:var(--font-mono);font-size:12px;color:var(--text-faint);white-space:nowrap;}
+  .cert-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+  .cert-card{position:relative;min-height:178px;padding:24px;border:1px solid var(--border);border-radius:12px;
+    background:linear-gradient(145deg,var(--surface),transparent);overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .2s ease,border-color .2s ease,background-color .25s ease;}
+  .cert-card::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,var(--accent),transparent 72%);opacity:.8;}
+  .cert-card:hover{transform:translateY(-3px);border-color:var(--border-strong);}
+  .cert-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;}
+  .cert-index{font-family:var(--font-mono);font-size:11px;color:var(--text-faint);}
+  .cert-domain{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent);background:var(--accent-dim);border:1px solid rgba(10,132,255,.2);border-radius:999px;padding:5px 9px;}
+  .cert-name{font-size:16px;font-weight:600;line-height:1.45;max-width:520px;}
+  .cert-footer{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:22px;
+    font-family:var(--font-mono);font-size:11px;color:var(--text-muted);}
+  .oracle-dot{width:7px;height:7px;border-radius:50%;background:#c74634;box-shadow:0 0 0 4px rgba(199,70,52,.12);}
 
   /* EDUCATION */
   .edu-list{display:flex;flex-direction:column;gap:0;}
@@ -315,6 +323,19 @@
   .edu-school{font-size:17px;font-weight:600;}
   .edu-degree{font-size:14px;color:var(--text-muted);margin-top:4px;}
   .edu-date{font-family:var(--font-mono);font-size:12px;color:var(--text-faint);white-space:nowrap;}
+  .edu-highlight{color:var(--accent);font-weight:800;white-space:nowrap;}
+
+  /* ACHIEVEMENTS */
+  .achievement-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+  .achievement-card{position:relative;padding:28px;border:1px solid var(--border);border-radius:12px;background:var(--surface);overflow:hidden;}
+  .achievement-number{position:absolute;right:18px;top:4px;font-family:var(--font-display);font-size:72px;font-weight:800;
+    color:var(--accent);opacity:.07;line-height:1;pointer-events:none;}
+  .achievement-kicker{font-family:var(--font-mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  .achievement-title{font-size:18px;font-weight:650;line-height:1.3;margin-bottom:12px;max-width:420px;}
+  .achievement-copy{font-size:14px;color:var(--text-muted);line-height:1.7;max-width:520px;}
+  .achievement-link{display:inline-flex;margin-top:18px;font-family:var(--font-mono);font-size:11px;color:var(--text-muted);
+    border-bottom:1px solid var(--border-strong);transition:color .2s,border-color .2s;}
+  .achievement-link:hover{color:var(--accent);border-color:var(--accent);}
 
   /* CONTACT */
   .contact-block{
@@ -336,9 +357,11 @@
     .about-grid{grid-template-columns:1fr;}
     .about-portrait{max-width:160px;}
     .stats-grid{grid-template-columns:1fr;}
+    .stat-card-wide{grid-column:auto;grid-template-columns:1fr;}
+    .stat-card-wide .stat-card-head{margin-bottom:20px;}
+    .linkedin-metric{justify-content:flex-start;}
     .stat-numbers{grid-template-columns:1fr 1fr;}
-    .cert-row{grid-template-columns:32px 1fr;row-gap:6px;}
-    .cert-date{grid-column:2;}
+    .cert-grid,.achievement-grid{grid-template-columns:1fr;}
   }
   [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
   [data-reveal].in{opacity:1;transform:translateY(0);}
@@ -458,7 +481,7 @@
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
-      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#stats">Stats</a>
       <a href="#education">Education</a>
@@ -480,7 +503,7 @@
     <h1 class="headline">Software engineer building <span class="muted">practical, scalable</span> systems.</h1>
     <p class="hero-sub">I'm <strong class="hero-name">Ayush Sharma</strong> — an Associate Software Engineer at <strong class="oracle-word">Oracle</strong>, working across AI, automation, and cloud infrastructure to solve real operational problems.</p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="#work">View work</a>
+      <a class="btn btn-primary" href="#projects">View projects</a>
       <a class="btn btn-ghost" href="#contact">Say hello</a>
     </div>
 
@@ -511,10 +534,10 @@
         <img src="assets/ayush-portrait.jpg" alt="Portrait of Ayush Sharma" width="1000" height="1000" loading="lazy" decoding="async">
       </div>
       <div class="about-text" data-reveal>
-        <p>I'm <strong>Ayush Sharma</strong>, a software development engineer based in Bengaluru, India. I build practical systems that solve operational and human problems — not projects that stop at theory. Reliability, clear failure modes, and measurable usefulness shape how I approach every build.</p>
+        <p>I'm <strong>Ayush Sharma</strong>, a software development engineer based in Bengaluru, India. I prefer building practical systems that solve operational and human problems and not just projects that stop at theory.</p>
         <p>At <strong>Oracle</strong>, I work in CSS Global SaaS &amp; Apps Delivery, engineering robust integrations with Oracle Integration Cloud and building cloud applications with APEX. I also contribute to scalable AI and automation initiatives across enterprise environments.</p>
-        <p>My Electrical Engineering foundation from <strong>NIT Srinagar</strong>, combined with a deep exploration of software systems and AI, gives me a multidisciplinary way to break down complex challenges. I am currently strengthening my expertise in system design and cloud-native architecture, with a focus on solutions that can scale beyond the first successful prototype.</p>
-        <p>Beyond the implementation itself, I value collaborative teams, thoughtful problem-solving, and continuous learning. I want the systems I build to make someone's work simpler, faster, or more dependable.</p>
+        <p>My engineering foundation from <strong>NIT Srinagar</strong>, combined with a deep exploration of software systems and AI, gives me a multidisciplinary way to break down complex challenges.</p>
+        <p>Beyond my technical work, I am passionate about collaborating with diverse teams, embracing continuous learning, and evolving as both an engineer and a professional.</p>
         <div class="tag-row">
           <span class="tag">C++</span>
           <span class="tag">Python</span>
@@ -542,10 +565,11 @@
       </div>
       <div class="skills-body">
         <div class="skills-tabs" id="skillsTabs">
-          <button class="skills-tab active" data-cat="languages">Languages <span class="count">05</span></button>
+          <button class="skills-tab active" data-cat="languages">Languages <span class="count">04</span></button>
           <button class="skills-tab" data-cat="cloud">Cloud &amp; infra <span class="count">08</span></button>
-          <button class="skills-tab" data-cat="tools">Tools &amp; frameworks <span class="count">03</span></button>
-          <button class="skills-tab" data-cat="concepts">Core concepts <span class="count">07</span></button>
+          <button class="skills-tab" data-cat="tools">Tools &amp; frameworks <span class="count">06</span></button>
+          <button class="skills-tab" data-cat="ai">AI &amp; automation <span class="count">04</span></button>
+          <button class="skills-tab" data-cat="concepts">Core concepts <span class="count">06</span></button>
         </div>
         <div class="skills-code" id="skillsCode"></div>
       </div>
@@ -554,10 +578,10 @@
   </div>
 </section>
 
-<section id="work">
+<section id="projects">
   <div class="wrap">
     <div class="section-head">
-      <h2 class="section-title">Selected work</h2>
+      <h2 class="section-title">Projects</h2>
       <div class="section-num">03 — projects</div>
     </div>
     <div class="file-list">
@@ -622,16 +646,6 @@
         <div class="file-arrow">→</div>
       </div>
 
-      <div class="file-row" data-reveal data-project="etherChat">
-        <div class="file-icon">07</div>
-        <div class="file-info">
-          <div class="file-name">EtherChat</div>
-          <div class="file-desc">A real-time multi-client terminal messenger with synchronized TCP message broadcasting.</div>
-        </div>
-        <div class="file-tags"><span class="tag">C++</span><span class="tag">TCP</span></div>
-        <div class="file-arrow">→</div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -670,7 +684,11 @@
           <div><span class="timeline-role">Campus Recruitment Coordinator</span> · <span class="timeline-company">NIT Srinagar</span></div>
           <div class="timeline-date">May 2024 — Jul 2025 · Srinagar</div>
         </div>
-        <div class="timeline-desc">Built relationships with 80+ companies, managed and analyzed placement data for more than 1,000 students, and coordinated end-to-end recruitment drives across student, recruiter, and institute stakeholders.</div>
+        <ul class="timeline-points">
+          <li>Engaged with 80+ companies to strengthen industry relationships and broaden the institute's recruitment pipeline.</li>
+          <li>Managed and analyzed placement data for more than 1,000 students, supporting accurate eligibility checks, coordination, and reporting.</li>
+          <li>Coordinated end-to-end placement drives across recruiters, students, and institute stakeholders—from scheduling and pre-placement communication through assessments, interviews, and offer follow-ups.</li>
+        </ul>
       </div>
 
     </div>
@@ -681,7 +699,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2 class="section-title">Stats</h2>
-      <div class="section-num">05 — github & leetcode</div>
+      <div class="section-num">05 — github · leetcode · linkedin</div>
     </div>
     <div class="stats-grid">
 
@@ -693,8 +711,8 @@
         <div class="stat-numbers">
           <div><div class="stat-num">198</div><div class="stat-label">Contributions / year</div></div>
           <div><div class="stat-num">35</div><div class="stat-label">Public repositories</div></div>
-          <div><div class="stat-num">2</div><div class="stat-label">Followers</div></div>
-          <div><div class="stat-num">1</div><div class="stat-label">Achievement</div></div>
+          <div><div class="stat-num">43</div><div class="stat-label">Longest streak</div></div>
+          <div><div class="stat-num">2,316</div><div class="stat-label">Profile views</div></div>
         </div>
       </div>
 
@@ -716,6 +734,17 @@
         </div>
       </div>
 
+      <div class="stat-card stat-card-wide" data-reveal>
+        <div class="stat-card-head">
+          <div class="stat-card-title">◆ LinkedIn</div>
+          <a class="stat-card-link" href="https://www.linkedin.com/in/sharma-ayushhh/" target="_blank" rel="noopener">Connect with me →</a>
+        </div>
+        <div class="linkedin-metric">
+          <div class="stat-num">5,951</div>
+          <div class="stat-label">Followers</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -726,62 +755,37 @@
       <h2 class="section-title">Certifications</h2>
       <div class="section-num">06 — credentials</div>
     </div>
-    <div class="cert-list">
-
-      <div class="cert-row" data-reveal>
-        <div class="cert-badge">OC</div>
-        <div>
-          <div class="cert-name">Oracle Cloud Infrastructure 2025 Certified Generative AI Professional</div>
-          <div class="cert-issuer">Oracle</div>
-        </div>
-        <div class="cert-date">2025</div>
-      </div>
-
-      <div class="cert-row" data-reveal>
-        <div class="cert-badge">OC</div>
-        <div>
-          <div class="cert-name">Application Integration on Oracle Cloud</div>
-          <div class="cert-issuer">Oracle</div>
-        </div>
-        <div class="cert-date">Cloud</div>
-      </div>
-
-      <div class="cert-row" data-reveal>
-        <div class="cert-badge">OC</div>
-        <div>
-          <div class="cert-name">Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</div>
-          <div class="cert-issuer">Oracle</div>
-        </div>
-        <div class="cert-date">2025</div>
-      </div>
-
-      <div class="cert-row" data-reveal>
-        <div class="cert-badge">OC</div>
-        <div>
-          <div class="cert-name">Oracle Certified Foundations Associate</div>
-          <div class="cert-issuer">Oracle</div>
-        </div>
-        <div class="cert-date">Foundation</div>
-      </div>
-
-      <div class="cert-row" data-reveal>
-        <div class="cert-badge">OC</div>
-        <div>
-          <div class="cert-name">Oracle Fusion AI Agent Studio Certified Foundations Associate</div>
-          <div class="cert-issuer">Oracle</div>
-        </div>
-        <div class="cert-date">AI</div>
-      </div>
-
-      <div class="cert-row" data-reveal>
-        <div class="cert-badge">OC</div>
-        <div>
-          <div class="cert-name">APEX Cloud Developer</div>
-          <div class="cert-issuer">Oracle</div>
-        </div>
-        <div class="cert-date">APEX</div>
-      </div>
-
+    <div class="cert-grid">
+      <article class="cert-card" data-reveal>
+        <div class="cert-card-top"><span class="cert-index">credential_01</span><span class="cert-domain">Generative AI</span></div>
+        <div class="cert-name">Oracle Cloud Infrastructure 2025 Certified Generative AI Professional</div>
+        <div class="cert-footer"><span class="oracle-dot"></span>Oracle · 2025</div>
+      </article>
+      <article class="cert-card" data-reveal>
+        <div class="cert-card-top"><span class="cert-index">credential_02</span><span class="cert-domain">Integration</span></div>
+        <div class="cert-name">Application Integration on Oracle Cloud</div>
+        <div class="cert-footer"><span class="oracle-dot"></span>Oracle · Cloud</div>
+      </article>
+      <article class="cert-card" data-reveal>
+        <div class="cert-card-top"><span class="cert-index">credential_03</span><span class="cert-domain">AI Foundations</span></div>
+        <div class="cert-name">Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</div>
+        <div class="cert-footer"><span class="oracle-dot"></span>Oracle · 2025</div>
+      </article>
+      <article class="cert-card" data-reveal>
+        <div class="cert-card-top"><span class="cert-index">credential_04</span><span class="cert-domain">Cloud</span></div>
+        <div class="cert-name">Oracle Certified Foundations Associate</div>
+        <div class="cert-footer"><span class="oracle-dot"></span>Oracle · Foundation</div>
+      </article>
+      <article class="cert-card" data-reveal>
+        <div class="cert-card-top"><span class="cert-index">credential_05</span><span class="cert-domain">Fusion AI</span></div>
+        <div class="cert-name">Oracle Fusion AI Agent Studio Certified Foundations Associate</div>
+        <div class="cert-footer"><span class="oracle-dot"></span>Oracle · AI</div>
+      </article>
+      <article class="cert-card" data-reveal>
+        <div class="cert-card-top"><span class="cert-index">credential_06</span><span class="cert-domain">APEX</span></div>
+        <div class="cert-name">APEX Cloud Developer</div>
+        <div class="cert-footer"><span class="oracle-dot"></span>Oracle · Cloud development</div>
+      </article>
     </div>
   </div>
 </section>
@@ -797,7 +801,7 @@
       <div class="edu-row" data-reveal>
         <div>
           <div class="edu-school">National Institute of Technology, Srinagar</div>
-          <div class="edu-degree">Bachelor of Technology in Electrical Engineering · CGPA: 8.48/10</div>
+          <div class="edu-degree">Bachelor of Technology in Electrical Engineering · <span class="edu-highlight">CGPA: 8.48/10</span></div>
         </div>
         <div class="edu-date">2021 — 2025</div>
       </div>
@@ -805,7 +809,7 @@
       <div class="edu-row" data-reveal>
         <div>
           <div class="edu-school">DAV School, Jammu</div>
-          <div class="edu-degree">Central Board of Secondary Education · Class X: 93.6% · Class XII: 92.4%</div>
+          <div class="edu-degree">Central Board of Secondary Education · <span class="edu-highlight">Class X: 93.6%</span> · <span class="edu-highlight">Class XII: 92.4%</span></div>
         </div>
         <div class="edu-date">2019 — 2021</div>
       </div>
@@ -814,9 +818,33 @@
   </div>
 </section>
 
+<section id="achievements">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">Beyond engineering</h2>
+      <div class="section-num">08 — leadership &amp; representation</div>
+    </div>
+    <div class="achievement-grid">
+      <article class="achievement-card" data-reveal>
+        <span class="achievement-number">01</span>
+        <div class="achievement-kicker">National exchange</div>
+        <h3 class="achievement-title">Yuva Sangam Phase IV Delegate</h3>
+        <p class="achievement-copy">Selected for the exchange program with VNIT Nagpur under the Ministry of Education's Ek Bharat Shreshtha Bharat initiative, inaugurated by the Prime Minister of India.</p>
+      </article>
+      <article class="achievement-card" data-reveal>
+        <span class="achievement-number">02</span>
+        <div class="achievement-kicker">Youth leadership</div>
+        <h3 class="achievement-title">NIT Srinagar Representative on DD Kashir</h3>
+        <p class="achievement-copy">Represented NIT Srinagar on DD Kashir's Youth Forum, acknowledged for youth leadership and serving as an institutional representative at the state level.</p>
+        <a class="achievement-link" href="https://www.youtube.com/watch?v=UbD5dfzVcWo&amp;t=865s" target="_blank" rel="noopener">Watch the appearance ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="wrap contact-block">
-    <div class="section-num">08 — get in touch</div>
+    <div class="section-num">09 — get in touch</div>
     <h2 class="big-cta">Have a project in mind, or just want to talk shop?</h2>
     <div class="contact-links">
       <a href="mailto:ayush.nitsgr@gmail.com">ayush.nitsgr@gmail.com</a>
@@ -882,7 +910,7 @@
   }
   loop();
 
-  document.querySelectorAll('a, button, .file-row, .btn, .cert-row').forEach(el=>{
+  document.querySelectorAll('a, button, .file-row, .btn').forEach(el=>{
     el.addEventListener('mouseenter', ()=>ring.classList.add('hover'));
     el.addEventListener('mouseleave', ()=>ring.classList.remove('hover'));
   });
@@ -965,19 +993,6 @@
       impact:'Converted a large collection of baskets into interpretable product relationships that can inform placement, bundling, and recommendation strategies.',
       tags:['Python','Apriori','Data Analysis','Association Rules'],
       github:'https://github.com/ayuxharma/Market-Basket-Analysis',
-      demo:''
-    },
-    etherChat: {
-      index:'07 / project',
-      file:'ether-chat.md',
-      title:'EtherChat',
-      tagline:'Real-time terminal messaging over TCP, built for concurrent clients.',
-      description:'A C++ multi-client chat application that allows several users to exchange messages concurrently through a single server.',
-      challenge:'A shared chat server must broadcast messages in real time while coordinating concurrent connections, protecting shared state, and handling clean client shutdowns.',
-      solution:'Implemented TCP socket communication, multithreaded broadcasting, synchronization and thread safety, username management, ANSI color-coded output, and graceful shutdown handling.',
-      impact:'Created an interactive command-line messenger that demonstrates practical concurrency, networking, and shared-state coordination.',
-      tags:['C++','TCP Sockets','Multithreading','Synchronization'],
-      github:'https://github.com/ayuxharma/EtherChat',
       demo:''
     }
   };
@@ -1066,16 +1081,25 @@
 
   // Complete the existing interactive skills viewer.
   const skillData = {
-    languages:[['C++',90],['Python',88],['Java',78],['SQL',84],['PL/SQL',82]],
-    cloud:[['Oracle Cloud Infrastructure (OCI)',88],['Oracle Integration Cloud (OIC)',92],['Oracle ERP Cloud',86],['Oracle APEX',84],['Oracle Visual Builder',76],['Serverless Functions',80],['REST APIs',90],['OAuth',84]],
-    tools:[['Docker',82],['Git',90],['LangGraph',78]],
-    concepts:[['Distributed Systems',82],['System Design',84],['Root-Cause Analysis',92],['Process Automation',90],['Operating Systems',82],['Computer Networks',84],['DBMS',86]]
+    languages:{key:'languages',values:['C++','Python','SQL','PL/SQL']},
+    cloud:{key:'cloud_and_infrastructure',values:['Oracle Cloud Infrastructure (OCI)','Oracle Integration Cloud (OIC)','Oracle ERP Cloud','Oracle APEX','Oracle Visual Builder','Serverless Functions','REST APIs','OAuth']},
+    tools:{key:'tools_and_frameworks',values:['Docker','Git','LangGraph','FastAPI','Redis','CI/CD']},
+    ai:{key:'ai_and_automation',values:['LLM Integration','Retrieval-Augmented Generation (RAG)','AI Systems','Process Automation']},
+    concepts:{key:'core_concepts',values:['Distributed Systems','System Design','Root-Cause Analysis','Operating Systems','Computer Networks','DBMS']}
   };
 
   function renderSkills(category){
     const skillsCode = document.getElementById('skillsCode');
     skillsCode.replaceChildren();
-    skillData[category].forEach(([name, level], index)=>{
+    const group = skillData[category];
+    const codeLines = [
+      '{',
+      `  "${group.key}": [`,
+      ...group.values.map((name,index)=>`    "${name}"${index < group.values.length - 1 ? ',' : ''}`),
+      '  ]',
+      '}'
+    ];
+    codeLines.forEach((content, index)=>{
       const line = document.createElement('div');
       line.className = 'line';
       line.style.animationDelay = (index * 55) + 'ms';
@@ -1084,14 +1108,8 @@
       number.textContent = index + 1;
       const value = document.createElement('span');
       value.className = 'val';
-      value.textContent = '"' + name + '"';
-      const track = document.createElement('span');
-      track.className = 'bar-track';
-      const fill = document.createElement('span');
-      fill.className = 'bar-fill';
-      fill.style.width = level + '%';
-      track.appendChild(fill);
-      line.append(number, value, track);
+      value.textContent = content;
+      line.append(number, value);
       skillsCode.appendChild(line);
     });
   }
