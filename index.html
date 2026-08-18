@@ -98,7 +98,7 @@
         <img src="assets/ayush-portrait.jpg" alt="Portrait of Ayush Sharma" width="1000" height="1000" loading="lazy" decoding="async">
       </div>
       <div class="about-text" data-reveal>
-        <p>I'm <strong>Ayush Sharma</strong>, a software development engineer based in Bengaluru, India. I prefer building practical systems that solve operational and human problems and not just projects that stop at theory.</p>
+        <p>I'm <strong>Ayush Sharma</strong>, a Software Engineer based in Bengaluru, India. I love building practical systems that solve operational and human problems and not just projects that stop at theory.</p>
         <p>At <strong>Oracle</strong>, I work in CSS Global SaaS &amp; Apps Delivery, engineering robust integrations with Oracle Integration Cloud and building cloud applications with APEX. I also contribute to scalable AI and automation initiatives across enterprise environments.</p>
         <p>My engineering foundation from <strong>NIT Srinagar</strong>, combined with a deep exploration of software systems and AI, gives me a multidisciplinary way to break down complex challenges.</p>
         <p>Beyond my technical work, I am passionate about collaborating with diverse teams, embracing continuous learning, and evolving as both an engineer and a professional.</p>
@@ -409,12 +409,55 @@
 <section id="contact">
   <div class="wrap contact-block">
     <div class="section-num">09 — get in touch</div>
-    <h2 class="big-cta">Have a project in mind, or just want to talk shop?</h2>
-    <div class="contact-links">
-      <a href="mailto:ayush.nitsgr@gmail.com">ayush.nitsgr@gmail.com</a>
-      <a href="https://github.com/ayuxharma" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/sharma-ayushhh/" target="_blank" rel="noopener">LinkedIn</a>
-      <span class="resume-pending">Resume — coming soon</span>
+    <h2 class="big-cta">Let's build something useful.</h2>
+    <p class="contact-lead">Have an idea, an opportunity, or a technical problem worth discussing? Send me a note or find me online.</p>
+
+    <div class="contact-layout">
+      <div class="contact-links" aria-label="Contact links">
+        <a class="contact-card" href="mailto:ayush.nitsgr@gmail.com">
+          <span class="contact-icon" aria-hidden="true">@</span>
+          <span class="contact-card-copy"><strong>Email</strong><small>ayush.nitsgr@gmail.com</small></span>
+          <span class="contact-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="contact-card" href="https://github.com/ayuxharma" target="_blank" rel="noopener">
+          <span class="contact-icon" aria-hidden="true">GH</span>
+          <span class="contact-card-copy"><strong>GitHub</strong><small>@ayuxharma</small></span>
+          <span class="contact-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/sharma-ayushhh/" target="_blank" rel="noopener">
+          <span class="contact-icon" aria-hidden="true">in</span>
+          <span class="contact-card-copy"><strong>LinkedIn</strong><small>Let's connect</small></span>
+          <span class="contact-arrow" aria-hidden="true">↗</span>
+        </a>
+        <div class="contact-card contact-card-disabled" aria-label="Resume coming soon">
+          <span class="contact-icon" aria-hidden="true">CV</span>
+          <span class="contact-card-copy"><strong>Resume</strong><small>Coming soon</small></span>
+          <span class="contact-status" aria-hidden="true">SOON</span>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="contact-form-head">
+          <span class="form-prompt" aria-hidden="true">➜</span>
+          <div><strong>Send a message</strong><small>I usually reply within a day or two.</small></div>
+        </div>
+        <div class="form-row">
+          <label for="contactName">Name</label>
+          <input id="contactName" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+        </div>
+        <div class="form-row">
+          <label for="contactEmail">Email</label>
+          <input id="contactEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-row">
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" name="message" rows="5" placeholder="Tell me what you have in mind…" required></textarea>
+        </div>
+        <div class="contact-form-foot">
+          <button class="btn btn-primary contact-submit" type="submit">Compose email <span aria-hidden="true">→</span></button>
+          <p class="form-note" id="contactFormStatus" aria-live="polite">Opens your default email app.</p>
+        </div>
+      </form>
     </div>
   </div>
 </section>
@@ -686,6 +729,21 @@
     });
   });
   renderSkills('languages');
+
+  // Compose a pre-addressed email without requiring a server or storing visitor data.
+  const contactForm = document.getElementById('contactForm');
+  const contactFormStatus = document.getElementById('contactFormStatus');
+  contactForm.addEventListener('submit', event=>{
+    event.preventDefault();
+    const formData = new FormData(contactForm);
+    const name = String(formData.get('name') || '').trim();
+    const email = String(formData.get('email') || '').trim();
+    const message = String(formData.get('message') || '').trim();
+    const subject = encodeURIComponent(`Portfolio message from ${name}`);
+    const body = encodeURIComponent(`Hi Ayush,\n\n${message}\n\nFrom: ${name}\nEmail: ${email}`);
+    contactFormStatus.textContent = 'Opening your email app…';
+    window.location.href = `mailto:ayush.nitsgr@gmail.com?subject=${subject}&body=${body}`;
+  });
 </script>
 
 </body>
