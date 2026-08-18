@@ -84,7 +84,7 @@ html[data-theme="light"] .theme-toggle .icon-sun{display:block;}
 
 /* HERO */
 header.hero{
-  padding:180px 0 120px;
+  padding:128px 0 96px;
   position:relative;
 }
 .eyebrow{
@@ -96,19 +96,20 @@ header.hero{
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
 
 h1.headline{
-  font-size:clamp(42px,7vw,84px);
+  font-size:clamp(38px,5vw,66px);
   font-weight:700;
   letter-spacing:-0.03em;
-  line-height:1.02;
-  max-width:820px;
+  line-height:1.06;
+  max-width:1080px;
 }
 h1.headline .muted{color:var(--text-faint);}
 .hero-sub{
-  margin-top:28px;
-  font-size:18px;
+  margin-top:24px;
+  font-size:17px;
   color:var(--text-muted);
-  max-width:520px;
+  max-width:720px;
   font-weight:400;
+  line-height:1.7;
 }
 .hero-name{
   color:var(--text);font-weight:800;letter-spacing:-.01em;
@@ -117,7 +118,7 @@ h1.headline .muted{color:var(--text-faint);}
 }
 .headline .hero-name{text-decoration-thickness:3px;text-underline-offset:7px;}
 .oracle-word{color:#c74634;font-weight:700;}
-.hero-actions{display:flex;gap:14px;margin-top:40px;}
+.hero-actions{display:flex;gap:14px;margin-top:32px;}
 .btn{
   padding:12px 22px;border-radius:8px;font-size:14px;font-weight:500;
   transition:transform .15s, background .2s, border-color .2s;
