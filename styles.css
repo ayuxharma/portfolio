@@ -115,6 +115,7 @@ h1.headline .muted{color:var(--text-faint);}
   text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;
   text-underline-offset:4px;
 }
+.headline .hero-name{text-decoration-thickness:3px;text-underline-offset:7px;}
 .oracle-word{color:#c74634;font-weight:700;}
 .hero-actions{display:flex;gap:14px;margin-top:40px;}
 .btn{
