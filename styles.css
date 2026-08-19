@@ -106,15 +106,9 @@ h1.headline{
 h1.headline .muted{color:var(--text-faint);}
 .hero-greeting{color:var(--text);font-weight:500;}
 .hero-statement{
-  display:block;margin-top:18px;max-width:960px;
-  font-size:clamp(24px,.52em,35px);font-weight:600;line-height:1.28;letter-spacing:-.02em;
-}
-.hero-statement-lead{display:block;color:var(--text-faint);}
-.hero-statement-emphasis{
-  display:block;width:max-content;max-width:100%;margin-top:6px;
-  color:var(--text);font-size:.9em;font-weight:650;letter-spacing:-.005em;
-  text-decoration-line:underline;text-decoration-color:var(--accent);
-  text-decoration-thickness:3px;text-underline-offset:8px;
+  display:block;margin-top:18px;max-width:960px;color:var(--text-muted);
+  font-family:var(--font-mono);font-size:clamp(22px,2.4vw,32px);
+  font-weight:500;line-height:1.4;letter-spacing:-.035em;
 }
 .hero-sub{
   margin-top:24px;
@@ -190,7 +184,17 @@ h2.section-title{font-size:32px;font-weight:700;letter-spacing:-0.02em;}
   font-family:var(--font-mono);font-size:11px;color:var(--text-muted);
   border:1px solid var(--border);
 }
-.file-info .file-name{font-size:16px;font-weight:600;margin-bottom:4px;}
+.file-info .file-name{
+  position:relative;display:inline-block;width:fit-content;margin-bottom:7px;
+  font-size:17px;font-weight:700;letter-spacing:-.015em;line-height:1.25;
+  transition:color .2s ease;
+}
+.file-info .file-name::after{
+  content:"";position:absolute;left:0;bottom:-3px;width:28px;height:2px;border-radius:2px;
+  background:var(--accent);opacity:.65;transition:width .28s ease,opacity .2s ease;
+}
+.file-row:hover .file-name,.file-row:focus-visible .file-name{color:var(--accent);}
+.file-row:hover .file-name::after,.file-row:focus-visible .file-name::after{width:100%;opacity:1;}
 .file-info .file-desc{font-size:13.5px;color:var(--text-muted);}
 .file-tags{display:flex;gap:6px;}
 .tag{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);
@@ -436,7 +440,6 @@ footer{padding:40px 0;border-top:1px solid var(--border);
   .cert-grid,.achievement-grid{grid-template-columns:1fr;}
   .contact-links{grid-template-columns:1fr;}
   .contact-form{padding:24px 20px;}
-  .hero-statement-emphasis{font-size:.84em;text-underline-offset:6px;}
 }
 [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
 [data-reveal].in{opacity:1;transform:translateY(0);}
