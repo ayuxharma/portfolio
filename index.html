@@ -121,68 +121,53 @@
       <h2 class="section-title">Projects</h2>
       <div class="section-num">03 — projects</div>
     </div>
-    <div class="file-list">
-
-      <div class="file-row" data-reveal data-project="apiMedic">
-        <div class="file-icon">01</div>
-        <div class="file-info">
-          <div class="file-name">API Medic</div>
-          <div class="file-desc">Hybrid API-failure diagnostics with deterministic reasoning and an optional AI fallback.</div>
-        </div>
-        <div class="file-tags"><span class="tag">FastAPI</span><span class="tag">LangGraph</span></div>
-        <div class="file-arrow">→</div>
+    <div class="project-carousel" data-reveal aria-roledescription="carousel" aria-label="Featured projects">
+      <div class="project-viewport">
+        <article class="project-stage" id="projectSlide" aria-live="polite">
+          <div class="project-stage-glow" aria-hidden="true"></div>
+          <div class="project-kicker">
+            <span id="projectIndex">01 / 06</span>
+            <span id="projectStatus">Production-ready</span>
+          </div>
+          <div class="project-main">
+            <div class="project-copy">
+              <h3 id="projectTitle">API Medic</h3>
+              <p class="project-tagline" id="projectTagline">Explainable API-failure diagnostics, with AI only when deterministic reasoning is not enough.</p>
+              <p class="project-description" id="projectDescription">API Medic classifies API failures, ranks likely root causes, explains its evidence, and recommends actionable fixes.</p>
+              <div class="project-stack-wrap">
+                <span class="project-stack-label">Built with</span>
+                <div class="project-stack" id="projectStack"></div>
+              </div>
+              <div class="project-slide-actions">
+                <button class="project-detail-link" id="projectDetails" type="button">Read case study <span>↗</span></button>
+                <a class="project-source-link" id="projectGithub" href="https://github.com/ayuxharma/API-Medic" target="_blank" rel="noreferrer">GitHub ↗</a>
+                <a class="project-source-link" id="projectDemo" href="https://api-medic-93ky.onrender.com/" target="_blank" rel="noreferrer">Live demo ↗</a>
+              </div>
+            </div>
+            <div class="project-breakdown">
+              <div class="project-insight">
+                <span>01 · Problem</span>
+                <p id="projectChallenge"></p>
+              </div>
+              <div class="project-insight">
+                <span>02 · Engineering</span>
+                <p id="projectSolution"></p>
+              </div>
+              <div class="project-insight project-insight-accent">
+                <span>03 · Outcome</span>
+                <p id="projectImpact"></p>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
-
-      <div class="file-row" data-reveal data-project="miniRaftKV">
-        <div class="file-icon">02</div>
-        <div class="file-info">
-          <div class="file-name">MiniRaftKV</div>
-          <div class="file-desc">A work-in-progress distributed key-value store built around the Raft consensus algorithm.</div>
-        </div>
-        <div class="file-tags"><span class="tag">C++</span><span class="tag">Raft</span></div>
-        <div class="file-arrow">→</div>
+      <div class="project-navigation">
+        <button class="project-nav-button" id="projectPrev" type="button" aria-label="Previous project">←</button>
+        <div class="project-progress" id="projectProgress" aria-label="Choose a project"></div>
+        <span class="project-counter"><strong id="projectCurrent">01</strong> / <span id="projectTotal">06</span></span>
+        <button class="project-nav-button project-nav-next" id="projectNext" type="button" aria-label="Next project">Next <span>→</span></button>
       </div>
-
-      <div class="file-row" data-reveal data-project="bedsideVision">
-        <div class="file-icon">03</div>
-        <div class="file-info">
-          <div class="file-name">Hospital Bedside Sign Recognition</div>
-          <div class="file-desc">Real-time sign-language recognition for more accessible patient-provider communication.</div>
-        </div>
-        <div class="file-tags"><span class="tag">YOLOv8</span><span class="tag">Raspberry Pi</span></div>
-        <div class="file-arrow">→</div>
-      </div>
-
-      <div class="file-row" data-reveal data-project="auroraAssembler">
-        <div class="file-icon">04</div>
-        <div class="file-info">
-          <div class="file-name">Aurora Assembler</div>
-          <div class="file-desc">A C++ assembler that tokenizes assembly programs and emits machine-code representations.</div>
-        </div>
-        <div class="file-tags"><span class="tag">C++</span><span class="tag">Systems</span></div>
-        <div class="file-arrow">→</div>
-      </div>
-
-      <div class="file-row" data-reveal data-project="httpServer">
-        <div class="file-icon">05</div>
-        <div class="file-info">
-          <div class="file-name">Multithreaded HTTP File Server</div>
-          <div class="file-desc">A concurrent HTTP server with MIME handling, URL decoding, and case-insensitive file lookup.</div>
-        </div>
-        <div class="file-tags"><span class="tag">C</span><span class="tag">Sockets</span></div>
-        <div class="file-arrow">→</div>
-      </div>
-
-      <div class="file-row" data-reveal data-project="marketBasket">
-        <div class="file-icon">06</div>
-        <div class="file-info">
-          <div class="file-name">Market Basket Analysis</div>
-          <div class="file-desc">Apriori-based analysis of grocery data to uncover purchasing patterns and associations.</div>
-        </div>
-        <div class="file-tags"><span class="tag">Python</span><span class="tag">Apriori</span></div>
-        <div class="file-arrow">→</div>
-      </div>
-
+      <p class="project-gesture">Swipe, use arrow keys, or choose a marker to explore.</p>
     </div>
   </div>
 </section>
@@ -491,11 +476,33 @@
     try { localStorage.setItem('portfolio-theme', nextTheme); } catch (error) {}
   });
 
-  const els = document.querySelectorAll('[data-reveal]');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:0.15});
-  els.forEach(el=>io.observe(el));
+  // Refined scroll reveals: grouped staggering, a softer entrance curve,
+  // one-time playback, and a no-motion path for visitors who request it.
+  const revealEls = [...document.querySelectorAll('[data-reveal]')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    revealEls.forEach(el=>el.classList.add('in'));
+  }else{
+    document.body.classList.add('reveal-ready');
+
+    document.querySelectorAll('.about-grid,.project-carousel,.timeline,.stats-grid,.edu-list,.cert-grid,.achievement-grid')
+      .forEach(group=>{
+        [...group.querySelectorAll(':scope > [data-reveal]')].forEach((el,index)=>{
+          el.style.setProperty('--reveal-delay',Math.min(index,5) * 85 + 'ms');
+        });
+      });
+
+    const revealObserver = new IntersectionObserver((entries,observer)=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      });
+    },{threshold:0.12,rootMargin:'0px 0px -10% 0px'});
+
+    revealEls.forEach(el=>revealObserver.observe(el));
+  }
 
   // Minimal custom cursor: dot tracks instantly, ring eases behind it
   const dot = document.getElementById('cursorDot');
@@ -517,7 +524,7 @@
   }
   loop();
 
-  document.querySelectorAll('a, button, .file-row, .btn').forEach(el=>{
+  document.querySelectorAll('a, button, .btn').forEach(el=>{
     el.addEventListener('mouseenter', ()=>ring.classList.add('hover'));
     el.addEventListener('mouseleave', ()=>ring.classList.remove('hover'));
   });
@@ -528,6 +535,7 @@
       index:'01 / project',
       file:'api-medic.md',
       title:'API Medic',
+      status:'Production-ready',
       tagline:'Explainable API-failure diagnostics, with AI only when deterministic reasoning is not enough.',
       description:'API Medic is a hybrid diagnostic application that classifies API failures, ranks likely root causes, explains supporting and weakening evidence, and recommends actionable fixes.',
       challenge:'API errors often surface as incomplete logs or generic status codes, forcing engineers to investigate several competing causes while protecting sensitive request data.',
@@ -541,6 +549,7 @@
       index:'02 / project',
       file:'mini-raft-kv.md',
       title:'MiniRaftKV',
+      status:'In progress',
       tagline:'Learning distributed consensus by implementing it, not only reading about it.',
       description:'MiniRaftKV is an in-progress distributed key-value store and a hands-on C++ implementation of the Raft consensus algorithm.',
       challenge:'Consensus papers make the guarantees clear, but the engineering details around timing, node failure, state transitions, and replicated logs only become visible in a working system.',
@@ -554,6 +563,7 @@
       index:'03 / project',
       file:'bedside-sign-recognition.md',
       title:'Hospital Bedside Sign Recognition',
+      status:'Research prototype',
       tagline:'Assistive computer vision for more accessible communication at the bedside.',
       description:'An assistive application that helps patients with hearing and speech impairments communicate with medical professionals through real-time sign-language recognition.',
       challenge:'Patients who cannot rely on speech may need a fast, intuitive communication channel that works within the physical and operational constraints of a healthcare environment.',
@@ -567,6 +577,7 @@
       index:'04 / project',
       file:'aurora-assembler.md',
       title:'Aurora Assembler',
+      status:'Open source',
       tagline:'From assembly source to machine representation in a clear C++ pipeline.',
       description:'A C++ assembler that translates assembly-language programs into corresponding machine-code representations.',
       challenge:'Assembler design requires precise tokenization, instruction classification, operand validation, and binary encoding while producing useful feedback for invalid source programs.',
@@ -580,6 +591,7 @@
       index:'05 / project',
       file:'http-file-server.md',
       title:'Multithreaded HTTP File Server',
+      status:'Systems build',
       tagline:'A concurrent file server built from sockets and HTTP fundamentals.',
       description:'A multithreaded HTTP server that listens on port 8080 and handles simultaneous client requests in independent worker threads.',
       challenge:'Serving files correctly requires concurrent connection handling, safe request parsing, URL decoding, MIME detection, and predictable error responses.',
@@ -593,6 +605,7 @@
       index:'06 / project',
       file:'market-basket-analysis.md',
       title:'Market Basket Analysis',
+      status:'Data analysis',
       tagline:'Finding useful product relationships in grocery transaction data.',
       description:'A data-analysis project that applies the Apriori algorithm to grocery-store transactions to identify purchasing patterns and product associations.',
       challenge:'Raw transaction data does not directly reveal which items frequently occur together or which relationships are strong enough to support a decision.',
@@ -666,18 +679,124 @@
     if(lastProjectTrigger) lastProjectTrigger.focus();
   }
 
-  document.querySelectorAll('.file-row[data-project]').forEach(row=>{
-    row.setAttribute('role','button');
-    row.setAttribute('tabindex','0');
-    row.setAttribute('aria-haspopup','dialog');
-    row.setAttribute('aria-label','Open details for ' + row.querySelector('.file-name').textContent);
-    row.addEventListener('click', ()=>openProject(row.dataset.project, row));
-    row.addEventListener('keydown', event=>{
-      if(event.key === 'Enter' || event.key === ' '){
-        event.preventDefault();
-        openProject(row.dataset.project, row);
-      }
+  const projectKeys = Object.keys(projectData);
+  const projectCarousel = document.querySelector('.project-carousel');
+  const projectSlide = document.getElementById('projectSlide');
+  const projectProgress = document.getElementById('projectProgress');
+  const projectDetails = document.getElementById('projectDetails');
+  const projectGithub = document.getElementById('projectGithub');
+  const projectDemo = document.getElementById('projectDemo');
+  let activeProject = 0;
+  let projectTransitionTimer;
+  let projectHeightTimer;
+  let swipeStartX = null;
+
+  projectKeys.forEach((key,index)=>{
+    const dot = document.createElement('button');
+    dot.className = 'project-dot';
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Show project ${index + 1}: ${projectData[key].title}`);
+    dot.addEventListener('click', ()=>showProject(index, index < activeProject ? -1 : 1));
+    projectProgress.appendChild(dot);
+  });
+
+  function fillProject(index){
+    const key = projectKeys[index];
+    const project = projectData[key];
+    document.getElementById('projectIndex').textContent = `${String(index + 1).padStart(2,'0')} / ${String(projectKeys.length).padStart(2,'0')}`;
+    document.getElementById('projectStatus').textContent = project.status;
+    document.getElementById('projectTitle').textContent = project.title;
+    document.getElementById('projectTagline').textContent = project.tagline;
+    document.getElementById('projectDescription').textContent = project.description;
+    document.getElementById('projectChallenge').textContent = project.challenge;
+    document.getElementById('projectSolution').textContent = project.solution;
+    document.getElementById('projectImpact').textContent = project.impact;
+    document.getElementById('projectCurrent').textContent = String(index + 1).padStart(2,'0');
+    document.getElementById('projectTotal').textContent = String(projectKeys.length).padStart(2,'0');
+    projectSlide.setAttribute('aria-label', `${project.title}, project ${index + 1} of ${projectKeys.length}`);
+
+    const stack = document.getElementById('projectStack');
+    stack.replaceChildren();
+    project.tags.forEach(tagName=>{
+      const tag = document.createElement('span');
+      tag.className = 'tag';
+      tag.textContent = tagName;
+      stack.appendChild(tag);
     });
+
+    [...projectProgress.children].forEach((dot,dotIndex)=>{
+      const selected = dotIndex === index;
+      dot.classList.toggle('active', selected);
+      dot.setAttribute('aria-current', selected ? 'true' : 'false');
+    });
+
+    projectGithub.hidden = !project.github;
+    projectDemo.hidden = !project.demo;
+    if(project.github) projectGithub.href = project.github;
+    if(project.demo) projectDemo.href = project.demo;
+    projectDetails.onclick = ()=>openProject(key, projectDetails);
+  }
+
+  function showProject(index,direction=1){
+    const nextIndex = (index + projectKeys.length) % projectKeys.length;
+    if(nextIndex === activeProject && projectSlide.dataset.ready) return;
+    clearTimeout(projectTransitionTimer);
+    projectSlide.classList.toggle('to-previous', direction < 0);
+    projectSlide.classList.add('is-changing');
+    projectTransitionTimer = setTimeout(()=>{
+      activeProject = nextIndex;
+      fillProject(activeProject);
+      requestAnimationFrame(()=>projectSlide.classList.remove('is-changing','to-previous'));
+    }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 180);
+    projectSlide.dataset.ready = 'true';
+  }
+
+  function syncProjectHeight(){
+    const currentProject = activeProject;
+    clearTimeout(projectTransitionTimer);
+    projectSlide.classList.remove('is-changing','to-previous');
+    projectSlide.style.height = 'auto';
+    let tallestHeight = 0;
+
+    projectKeys.forEach((key,index)=>{
+      fillProject(index);
+      tallestHeight = Math.max(tallestHeight, projectSlide.scrollHeight);
+    });
+
+    fillProject(currentProject);
+    projectSlide.style.height = Math.ceil(tallestHeight) + 'px';
+  }
+
+  document.getElementById('projectPrev').addEventListener('click', ()=>showProject(activeProject - 1,-1));
+  document.getElementById('projectNext').addEventListener('click', ()=>showProject(activeProject + 1,1));
+  projectCarousel.addEventListener('keydown', event=>{
+    if(event.key === 'ArrowRight'){
+      event.preventDefault();
+      showProject(activeProject + 1,1);
+    }
+    if(event.key === 'ArrowLeft'){
+      event.preventDefault();
+      showProject(activeProject - 1,-1);
+    }
+  });
+  projectCarousel.addEventListener('pointerdown', event=>{
+    if(event.target.closest('button,a')) return;
+    swipeStartX = event.clientX;
+  });
+  projectCarousel.addEventListener('pointerup', event=>{
+    if(swipeStartX === null) return;
+    const distance = event.clientX - swipeStartX;
+    swipeStartX = null;
+    if(Math.abs(distance) < 48) return;
+    showProject(activeProject + (distance < 0 ? 1 : -1), distance < 0 ? 1 : -1);
+  });
+  projectCarousel.addEventListener('pointercancel', ()=>{ swipeStartX = null; });
+  fillProject(activeProject);
+  syncProjectHeight();
+  if(document.fonts?.ready) document.fonts.ready.then(syncProjectHeight);
+  window.addEventListener('resize', ()=>{
+    clearTimeout(projectHeightTimer);
+    projectHeightTimer = setTimeout(syncProjectHeight, 160);
   });
 
   modalClose.addEventListener('click', closeProject);
