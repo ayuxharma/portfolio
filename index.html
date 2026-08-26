@@ -27,6 +27,10 @@
       <h3 class="modal-title" id="modalTitle">Project Name</h3>
       <div class="modal-tagline" id="modalTagline">tagline</div>
       <p class="modal-desc" id="modalDesc">Description.</p>
+      <div class="modal-architecture" id="modalArchitecture" hidden>
+        <div class="architecture-head"><span>system.flow</span><span>high-level architecture</span></div>
+        <div class="architecture-track" id="architectureTrack"></div>
+      </div>
       <div class="modal-details" id="modalDetails"></div>
       <div class="modal-tags" id="modalTags"></div>
       <div class="modal-actions">
@@ -76,11 +80,11 @@
         <span></span><span></span><span></span>
         <div class="terminal-title">whoami.sh</div>
       </div>
-      <div class="terminal-body">
-        <div><span class="prompt">➜</span> <span class="path">~</span> whoami</div>
-        <div class="out">Ayush Sharma — Associate Software Engineer @ Oracle</div>
-        <div><span class="prompt">➜</span> <span class="path">~</span> stack --list</div>
-        <div class="out">C++ · Python · AI Systems · Cloud Infrastructure</div>
+      <div class="terminal-body" aria-label="Interactive developer profile terminal">
+        <div class="terminal-command"><span class="prompt">➜</span> <span class="path">~</span> <span class="command">whoami</span></div>
+        <div class="out terminal-output" data-type-text="Ayush Sharma — Associate Software Engineer @ Oracle">Ayush Sharma — Associate Software Engineer @ Oracle</div>
+        <div class="terminal-command"><span class="prompt">➜</span> <span class="path">~</span> <span class="command">stack</span> <span class="command-flag">--list</span></div>
+        <div class="out terminal-output" data-type-text="C++ · Python · AI Systems · Cloud Infrastructure">C++ · Python · AI Systems · Cloud Infrastructure</div>
         <div><span class="prompt">➜</span> <span class="path">~</span> <span class="cursor"></span></div>
       </div>
     </div>
@@ -178,9 +182,10 @@
       <h2 class="section-title">Experience</h2>
       <div class="section-num">04 — history</div>
     </div>
-    <div class="timeline">
+    <div class="timeline experience-ledger">
 
       <div class="timeline-item" data-reveal>
+        <div class="timeline-index" aria-hidden="true">01</div>
         <div class="timeline-meta">
           <div><span class="timeline-role">Associate Software Engineer</span> · <span class="timeline-company">Oracle</span></div>
           <div class="timeline-date">Sep 2025 — Present · Bengaluru</div>
@@ -194,6 +199,7 @@
       </div>
 
       <div class="timeline-item" data-reveal>
+        <div class="timeline-index" aria-hidden="true">02</div>
         <div class="timeline-meta">
           <div><span class="timeline-role">Growth Opportunity Analyst Intern</span> · <span class="timeline-company">Frost &amp; Sullivan</span></div>
           <div class="timeline-date">Apr 2025 — Jul 2025 · Mumbai</div>
@@ -202,6 +208,7 @@
       </div>
 
       <div class="timeline-item" data-reveal>
+        <div class="timeline-index" aria-hidden="true">03</div>
         <div class="timeline-meta">
           <div><span class="timeline-role">Campus Recruitment Coordinator</span> · <span class="timeline-company">NIT Srinagar</span></div>
           <div class="timeline-date">May 2024 — Jul 2025 · Srinagar</div>
@@ -263,6 +270,7 @@
           <div><div class="stat-num" data-stat="github-streak">43</div><div class="stat-label">Longest streak</div></div>
           <div><div class="stat-num" data-stat="github-profile-views">2,479</div><div class="stat-label">Profile views</div></div>
         </div>
+        <div class="stat-live-row"><span class="stat-live-dot"></span><span>Automated daily refresh</span><span>365-day contribution window</span></div>
       </div>
 
       <div class="stat-card" data-reveal>
@@ -270,16 +278,23 @@
           <div class="stat-card-title">◆ LeetCode</div>
           <a class="stat-card-link" data-stat="leetcode-rank" href="https://leetcode.com/u/ayuxharma/" target="_blank" rel="noopener">Rank 249,807 →</a>
         </div>
-        <div class="stat-numbers">
-          <div><div class="stat-num" data-stat="leetcode-solved">454</div><div class="stat-label">Problems solved</div></div>
-          <div><div class="stat-num" data-stat="leetcode-acceptance">70.39%</div><div class="stat-label">Acceptance</div></div>
-          <div><div class="stat-num" data-stat="leetcode-streak">116</div><div class="stat-label">Max streak</div></div>
-          <div><div class="stat-num" data-stat="leetcode-badges">8</div><div class="stat-label">Badges</div></div>
+        <div class="leetcode-dashboard">
+          <div class="leetcode-ledger" aria-label="454 LeetCode problems solved">
+            <span class="leetcode-ledger-path">problems.solved</span>
+            <strong id="leetcodeSolvedTotal" data-stat-mirror="leetcode-solved">454</strong>
+            <span class="leetcode-ledger-status"><i></i> profile active</span>
+          </div>
+          <div class="stat-numbers leetcode-metrics">
+            <span class="sr-only" data-stat="leetcode-solved">454</span>
+            <div><div class="stat-num" data-stat="leetcode-acceptance">70.39%</div><div class="stat-label">Acceptance</div></div>
+            <div><div class="stat-num" data-stat="leetcode-streak">116</div><div class="stat-label">Max streak</div></div>
+            <div><div class="stat-num" data-stat="leetcode-badges">8</div><div class="stat-label">Badges</div></div>
+          </div>
         </div>
-        <div class="stat-bar-wrap">
-          <div class="stat-bar-row"><span class="lbl">Easy</span><div class="stat-bar-track"><div class="stat-bar-fill" data-stat-bar="leetcode-easy" style="width:86.6%"></div></div><span class="pct" data-stat="leetcode-easy">188</span></div>
-          <div class="stat-bar-row"><span class="lbl">Medium</span><div class="stat-bar-track"><div class="stat-bar-fill" data-stat-bar="leetcode-medium" style="width:100.0%"></div></div><span class="pct" data-stat="leetcode-medium">217</span></div>
-          <div class="stat-bar-row"><span class="lbl">Hard</span><div class="stat-bar-track"><div class="stat-bar-fill" data-stat-bar="leetcode-hard" style="width:22.6%"></div></div><span class="pct" data-stat="leetcode-hard">49</span></div>
+        <div class="stat-bar-wrap leetcode-difficulty" aria-label="Problems solved by difficulty">
+          <div class="stat-bar-row"><span class="lbl"><b>E</b> Easy</span><div class="stat-bar-track"><div class="stat-bar-fill" data-stat-bar="leetcode-easy" style="width:86.6%"></div></div><span class="pct" data-stat="leetcode-easy">188</span></div>
+          <div class="stat-bar-row"><span class="lbl"><b>M</b> Medium</span><div class="stat-bar-track"><div class="stat-bar-fill" data-stat-bar="leetcode-medium" style="width:100.0%"></div></div><span class="pct" data-stat="leetcode-medium">217</span></div>
+          <div class="stat-bar-row"><span class="lbl"><b>H</b> Hard</span><div class="stat-bar-track"><div class="stat-bar-fill" data-stat-bar="leetcode-hard" style="width:22.6%"></div></div><span class="pct" data-stat="leetcode-hard">49</span></div>
         </div>
       </div>
 
@@ -292,6 +307,7 @@
           <div class="stat-num">6,000+</div>
           <div class="stat-label">Followers</div>
         </div>
+        <div class="linkedin-network" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
       </div>
 
     </div>
@@ -399,11 +415,18 @@
 
     <div class="contact-layout">
       <div class="contact-links" aria-label="Contact links">
-        <a class="contact-card" href="mailto:ayush.nitsgr@gmail.com">
-          <span class="contact-icon" aria-hidden="true">@</span>
-          <span class="contact-card-copy"><strong>Email</strong><small>ayush.nitsgr@gmail.com</small></span>
-          <span class="contact-arrow" aria-hidden="true">↗</span>
-        </a>
+        <div class="contact-email-group">
+          <a class="contact-card" href="mailto:ayush.nitsgr@gmail.com">
+            <span class="contact-icon" aria-hidden="true">@</span>
+            <span class="contact-card-copy"><strong>Email</strong><small>ayush.nitsgr@gmail.com</small></span>
+            <span class="contact-arrow" aria-hidden="true">↗</span>
+          </a>
+          <button class="copy-email-button" id="copyEmail" type="button" aria-label="Copy Ayush's email address">
+            <span class="copy-email-icon" aria-hidden="true">⧉</span>
+            <span id="copyEmailLabel">Copy</span>
+          </button>
+          <span class="sr-only" id="copyEmailStatus" aria-live="polite"></span>
+        </div>
         <a class="contact-card" href="https://github.com/ayuxharma" target="_blank" rel="noopener">
           <span class="contact-icon" aria-hidden="true">GH</span>
           <span class="contact-card-copy"><strong>GitHub</strong><small>@ayuxharma</small></span>
@@ -504,6 +527,46 @@
     revealEls.forEach(el=>revealObserver.observe(el));
   }
 
+  // Run the terminal once, when it becomes visible. Static text remains the
+  // no-JS and reduced-motion fallback.
+  const terminal = document.querySelector('.terminal');
+  const terminalOutputs = [...document.querySelectorAll('.terminal-output')];
+
+  function typeTerminalOutput(element,text,speed=16){
+    return new Promise(resolve=>{
+      let index = 0;
+      element.classList.add('typing');
+      const timer = window.setInterval(()=>{
+        element.textContent = text.slice(0,++index);
+        if(index >= text.length){
+          window.clearInterval(timer);
+          element.classList.remove('typing');
+          resolve();
+        }
+      },speed);
+    });
+  }
+
+  async function runTerminal(){
+    if(terminal.dataset.typed) return;
+    terminal.dataset.typed = 'true';
+    for(const output of terminalOutputs){
+      await typeTerminalOutput(output,output.dataset.typeText || '');
+      await new Promise(resolve=>window.setTimeout(resolve,180));
+    }
+    terminal.classList.add('terminal-complete');
+  }
+
+  if(!reduceMotion && 'IntersectionObserver' in window){
+    terminalOutputs.forEach(output=>{ output.textContent = ''; });
+    const terminalObserver = new IntersectionObserver((entries,observer)=>{
+      if(!entries.some(entry=>entry.isIntersecting)) return;
+      runTerminal();
+      observer.disconnect();
+    },{threshold:.45});
+    terminalObserver.observe(terminal);
+  }
+
   // Minimal custom cursor: dot tracks instantly, ring eases behind it
   const dot = document.getElementById('cursorDot');
   const ring = document.getElementById('cursorRing');
@@ -542,6 +605,12 @@
       solution:'Built a weighted-evidence rules engine with soft elimination for authentication, authorization, validation, server, database, and concurrency failures. Low-confidence cases can route through LangGraph to Gemini after sensitive values are redacted. FastAPI and Pydantic provide typed browser, file-upload, JSON, and CLI interfaces.',
       impact:'Produces confidence-scored diagnoses, alternatives, evidence, and fixes through a tested, type-checked, linted, Dockerized application with health checks and GitHub Actions CI.',
       tags:['Python','FastAPI','Pydantic','LangGraph','Gemini','Docker'],
+      architecture:[
+        {label:'Input layer',meta:'Form · JSON · CLI'},
+        {label:'Safe intake',meta:'Pydantic · redaction'},
+        {label:'Reasoning core',meta:'Weighted rules'},
+        {label:'Decision',meta:'Diagnosis · AI fallback'}
+      ],
       github:'https://github.com/ayuxharma/API-Medic',
       demo:'https://api-medic-93ky.onrender.com/'
     },
@@ -556,6 +625,12 @@
       solution:'Implementing leader election, heartbeats, replicated-log behavior, term handling, and fault scenarios as small, testable C++ components.',
       impact:'An active systems project focused on building a rigorous understanding of distributed state, correctness, and recovery behavior.',
       tags:['C++','Raft','Distributed Systems','Consensus'],
+      architecture:[
+        {label:'Client',meta:'put · get'},
+        {label:'Leader',meta:'term · heartbeat'},
+        {label:'Replicated log',meta:'ordered commands'},
+        {label:'Followers',meta:'commit · apply'}
+      ],
       github:'',
       demo:''
     },
@@ -570,6 +645,12 @@
       solution:'Built the core detection engine with YOLOv8 for object detection, segmentation, and pose estimation, then deployed it on a Raspberry Pi with sensors, a camera module, and a tablet-facing workflow.',
       impact:'Created a compact and responsive prototype for translating gestures at the bedside and documented the design, implementation, and performance evaluation in a research paper.',
       tags:['Python','YOLOv8','Computer Vision','Raspberry Pi','Pose Estimation'],
+      architecture:[
+        {label:'Camera',meta:'live frames'},
+        {label:'YOLOv8',meta:'pose · detection'},
+        {label:'Gesture map',meta:'sign classification'},
+        {label:'Care interface',meta:'tablet output'}
+      ],
       github:'',
       demo:''
     },
@@ -598,6 +679,12 @@
       solution:'Implemented GET-request validation, decoded path handling, extension-based MIME mapping, case-insensitive file lookup, response-header construction, file streaming, and 404 behavior.',
       impact:'Demonstrates the complete request-response lifecycle and practical concurrency without hiding the networking work behind a web framework.',
       tags:['C','HTTP','TCP Sockets','Multithreading','Networking'],
+      architecture:[
+        {label:'TCP client',meta:'port 8080'},
+        {label:'Accept loop',meta:'connection dispatch'},
+        {label:'Worker thread',meta:'parse · validate'},
+        {label:'File response',meta:'MIME · stream · 404'}
+      ],
       github:'https://github.com/ayuxharma/Simple-HTTP-Server',
       demo:''
     },
@@ -644,6 +731,31 @@
     document.getElementById('modalTitle').textContent = project.title;
     document.getElementById('modalTagline').textContent = project.tagline;
     document.getElementById('modalDesc').textContent = project.description;
+    const architecturePanel = document.getElementById('modalArchitecture');
+    const architectureTrack = document.getElementById('architectureTrack');
+    architectureTrack.replaceChildren();
+    architecturePanel.hidden = !project.architecture;
+    if(project.architecture){
+      architectureTrack.style.setProperty('--architecture-count', project.architecture.length);
+      project.architecture.forEach((nodeData,index)=>{
+        const node = document.createElement('div');
+        node.className = 'architecture-node';
+        const order = document.createElement('span');
+        order.textContent = String(index + 1).padStart(2,'0');
+        const label = document.createElement('strong');
+        label.textContent = nodeData.label;
+        const meta = document.createElement('small');
+        meta.textContent = nodeData.meta;
+        node.append(order,label,meta);
+        architectureTrack.appendChild(node);
+        if(index < project.architecture.length - 1){
+          const arrow = document.createElement('span');
+          arrow.className = 'architecture-arrow';
+          arrow.textContent = '→';
+          architectureTrack.appendChild(arrow);
+        }
+      });
+    }
     modalDetails.replaceChildren();
     addDetail('Challenge', project.challenge);
     addDetail('Solution', project.solution);
@@ -688,7 +800,6 @@
   const projectDemo = document.getElementById('projectDemo');
   let activeProject = 0;
   let projectTransitionTimer;
-  let projectHeightTimer;
   let swipeStartX = null;
 
   projectKeys.forEach((key,index)=>{
@@ -751,22 +862,6 @@
     projectSlide.dataset.ready = 'true';
   }
 
-  function syncProjectHeight(){
-    const currentProject = activeProject;
-    clearTimeout(projectTransitionTimer);
-    projectSlide.classList.remove('is-changing','to-previous');
-    projectSlide.style.height = 'auto';
-    let tallestHeight = 0;
-
-    projectKeys.forEach((key,index)=>{
-      fillProject(index);
-      tallestHeight = Math.max(tallestHeight, projectSlide.scrollHeight);
-    });
-
-    fillProject(currentProject);
-    projectSlide.style.height = Math.ceil(tallestHeight) + 'px';
-  }
-
   document.getElementById('projectPrev').addEventListener('click', ()=>showProject(activeProject - 1,-1));
   document.getElementById('projectNext').addEventListener('click', ()=>showProject(activeProject + 1,1));
   projectCarousel.addEventListener('keydown', event=>{
@@ -792,12 +887,6 @@
   });
   projectCarousel.addEventListener('pointercancel', ()=>{ swipeStartX = null; });
   fillProject(activeProject);
-  syncProjectHeight();
-  if(document.fonts?.ready) document.fonts.ready.then(syncProjectHeight);
-  window.addEventListener('resize', ()=>{
-    clearTimeout(projectHeightTimer);
-    projectHeightTimer = setTimeout(syncProjectHeight, 160);
-  });
 
   modalClose.addEventListener('click', closeProject);
   modalOverlay.addEventListener('click', event=>{ if(event.target === modalOverlay) closeProject(); });
@@ -819,13 +908,17 @@
     skillsCode.replaceChildren();
     const group = skillData[category];
     const codeLines = [
-      '{',
-      `  "${group.key}": [`,
-      ...group.values.map((name,index)=>`    "${name}"${index < group.values.length - 1 ? ',' : ''}`),
-      '  ]',
-      '}'
+      [{type:'syntax-bracket',text:'{'}],
+      [{type:'syntax-space',text:'  '},{type:'syntax-key',text:`"${group.key}"`},{type:'syntax-punctuation',text:': '},{type:'syntax-bracket',text:'['}],
+      ...group.values.map((name,index)=>[
+        {type:'syntax-space',text:'    '},
+        {type:'syntax-string',text:`"${name}"`},
+        {type:'syntax-punctuation',text:index < group.values.length - 1 ? ',' : ''}
+      ]),
+      [{type:'syntax-space',text:'  '},{type:'syntax-bracket',text:']'}],
+      [{type:'syntax-bracket',text:'}'}]
     ];
-    codeLines.forEach((content, index)=>{
+    codeLines.forEach((tokens, index)=>{
       const line = document.createElement('div');
       line.className = 'line';
       line.style.animationDelay = (index * 55) + 'ms';
@@ -834,7 +927,12 @@
       number.textContent = index + 1;
       const value = document.createElement('span');
       value.className = 'val';
-      value.textContent = content;
+      tokens.forEach(token=>{
+        const span = document.createElement('span');
+        span.className = token.type;
+        span.textContent = token.text;
+        value.appendChild(span);
+      });
       line.append(number, value);
       skillsCode.appendChild(line);
     });
@@ -848,6 +946,42 @@
     });
   });
   renderSkills('languages');
+
+  // Keep the LeetCode ledger synchronized with the same value rendered by the
+  // daily stats updater—no fabricated history or hard-coded trend.
+  function numericStat(key){
+    const value = document.querySelector(`[data-stat="${key}"]`)?.textContent || '0';
+    return Number(value.replace(/[^\d.]/g,'')) || 0;
+  }
+  document.getElementById('leetcodeSolvedTotal').textContent = numericStat('leetcode-solved').toLocaleString();
+
+  // Copy the email directly while keeping mailto as the primary contact path.
+  const copyEmail = document.getElementById('copyEmail');
+  const copyEmailLabel = document.getElementById('copyEmailLabel');
+  const copyEmailStatus = document.getElementById('copyEmailStatus');
+  copyEmail.addEventListener('click', async ()=>{
+    const emailAddress = 'ayush.nitsgr@gmail.com';
+    try{
+      await navigator.clipboard.writeText(emailAddress);
+    }catch{
+      const fallback = document.createElement('textarea');
+      fallback.value = emailAddress;
+      fallback.setAttribute('readonly','');
+      fallback.style.position = 'fixed';
+      fallback.style.opacity = '0';
+      document.body.appendChild(fallback);
+      fallback.select();
+      document.execCommand('copy');
+      fallback.remove();
+    }
+    copyEmail.classList.add('copied');
+    copyEmailLabel.textContent = 'Copied';
+    copyEmailStatus.textContent = 'Email address copied to clipboard.';
+    window.setTimeout(()=>{
+      copyEmail.classList.remove('copied');
+      copyEmailLabel.textContent = 'Copy';
+    },1800);
+  });
 
   // Compose a pre-addressed email without requiring a server or storing visitor data.
   const contactForm = document.getElementById('contactForm');
