@@ -179,15 +179,6 @@ def replace_stat(html: str, key: str, value: str | int) -> str:
     return updated
 
 
-def replace_stat_mirrors(html: str, key: str, value: str | int) -> str:
-    """Update optional duplicate displays without weakening primary-marker checks."""
-    pattern = re.compile(
-        rf'(<[^>]+\bdata-stat-mirror="{re.escape(key)}"[^>]*>)(.*?)(</[^>]+>)',
-        re.DOTALL,
-    )
-    return pattern.sub(rf"\g<1>{value}\g<3>", html)
-
-
 def replace_bar_width(html: str, key: str, width: float) -> str:
     pattern = re.compile(rf'<[^>]+\bdata-stat-bar="{re.escape(key)}"[^>]*>')
     match = pattern.search(html)
@@ -225,7 +216,6 @@ def main() -> int:
     for key, raw_value in values.items():
         display_value = f"{raw_value:,}" if isinstance(raw_value, int) else raw_value
         html = replace_stat(html, key, display_value)
-        html = replace_stat_mirrors(html, key, display_value)
 
     if leetcode_counts:
         maximum = max(leetcode_counts.values()) or 1

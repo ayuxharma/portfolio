@@ -259,7 +259,7 @@
     </div>
     <div class="stats-grid">
 
-      <div class="stat-card" data-reveal>
+      <div class="stat-card github-stat-card" data-reveal>
         <div class="stat-card-head">
           <div class="stat-card-title">◆ GitHub</div>
           <a class="stat-card-link" href="https://github.com/ayuxharma" target="_blank" rel="noopener">@ayuxharma →</a>
@@ -270,7 +270,14 @@
           <div><div class="stat-num" data-stat="github-streak">43</div><div class="stat-label">Longest streak</div></div>
           <div><div class="stat-num" data-stat="github-profile-views">2,516</div><div class="stat-label">Profile views</div></div>
         </div>
-        <div class="stat-live-row"><span class="stat-live-dot"></span><span>Automated daily refresh</span><span>365-day contribution window</span></div>
+        <div class="github-card-footer">
+          <div class="stat-live-row"><span class="stat-live-dot"></span><span>Automated daily refresh</span></div>
+          <div class="github-heatmap" aria-hidden="true">
+            <i class="level-0"></i><i class="level-1"></i><i class="level-2"></i><i class="level-0"></i><i class="level-3"></i><i class="level-1"></i><i class="level-2"></i>
+            <i class="level-1"></i><i class="level-3"></i><i class="level-1"></i><i class="level-2"></i><i class="level-4"></i><i class="level-2"></i><i class="level-0"></i>
+            <i class="level-2"></i><i class="level-1"></i><i class="level-4"></i><i class="level-3"></i><i class="level-1"></i><i class="level-2"></i><i class="level-3"></i>
+          </div>
+        </div>
       </div>
 
       <div class="stat-card" data-reveal>
@@ -278,36 +285,32 @@
           <div class="stat-card-title">◆ LeetCode</div>
           <a class="stat-card-link" data-stat="leetcode-rank" href="https://leetcode.com/u/ayuxharma/" target="_blank" rel="noopener">Rank 246,690 →</a>
         </div>
-        <div class="leetcode-dashboard">
-          <div class="leetcode-ledger" aria-label="454 LeetCode problems solved">
-            <span class="leetcode-ledger-path">problems.solved</span>
-            <strong id="leetcodeSolvedTotal" data-stat-mirror="leetcode-solved">460</strong>
-            <span class="leetcode-ledger-status"><i></i> profile active</span>
-          </div>
-          <div class="stat-numbers leetcode-metrics">
-            <span class="sr-only" data-stat="leetcode-solved">460</span>
-            <div><div class="stat-num" data-stat="leetcode-acceptance">70.55%</div><div class="stat-label">Acceptance</div></div>
-            <div><div class="stat-num" data-stat="leetcode-streak">116</div><div class="stat-label">Max streak</div></div>
-            <div><div class="stat-num" data-stat="leetcode-badges">9</div><div class="stat-label">Badges</div></div>
-          </div>
+        <div class="stat-numbers leetcode-metrics">
+          <div><div class="stat-num" data-stat="leetcode-solved">460</div><div class="stat-label">Problems solved</div></div>
+          <div><div class="stat-num" data-stat="leetcode-acceptance">70.55%</div><div class="stat-label">Acceptance</div></div>
+          <div><div class="stat-num" data-stat="leetcode-streak">116</div><div class="stat-label">Max streak</div></div>
+          <div><div class="stat-num" data-stat="leetcode-badges">9</div><div class="stat-label">Badges</div></div>
         </div>
-        <div class="stat-bar-wrap leetcode-difficulty" aria-label="Problems solved by difficulty">
-          <div class="stat-bar-row"><span class="lbl"><b>E</b> Easy</span><div class="stat-bar-track"><div class="stat-bar-fill" data-stat-bar="leetcode-easy" style="width:84.7%"></div></div><span class="pct" data-stat="leetcode-easy">188</span></div>
-          <div class="stat-bar-row"><span class="lbl"><b>M</b> Medium</span><div class="stat-bar-track"><div class="stat-bar-fill" data-stat-bar="leetcode-medium" style="width:100.0%"></div></div><span class="pct" data-stat="leetcode-medium">222</span></div>
-          <div class="stat-bar-row"><span class="lbl"><b>H</b> Hard</span><div class="stat-bar-track"><div class="stat-bar-fill" data-stat-bar="leetcode-hard" style="width:22.5%"></div></div><span class="pct" data-stat="leetcode-hard">50</span></div>
+        <div class="leetcode-bottom">
+          <div class="stat-bar-wrap leetcode-difficulty" aria-label="Problems solved by difficulty">
+            <div class="stat-bar-row"><span class="lbl"><b>E</b> Easy</span><div class="stat-bar-track"><div class="stat-bar-fill" data-stat-bar="leetcode-easy" style="width:84.7%"></div></div><span class="pct" data-stat="leetcode-easy">188</span></div>
+            <div class="stat-bar-row"><span class="lbl"><b>M</b> Medium</span><div class="stat-bar-track"><div class="stat-bar-fill" data-stat-bar="leetcode-medium" style="width:100.0%"></div></div><span class="pct" data-stat="leetcode-medium">222</span></div>
+            <div class="stat-bar-row"><span class="lbl"><b>H</b> Hard</span><div class="stat-bar-track"><div class="stat-bar-fill" data-stat-bar="leetcode-hard" style="width:22.5%"></div></div><span class="pct" data-stat="leetcode-hard">50</span></div>
+          </div>
+          <div class="stat-live-row"><span class="stat-live-dot"></span><span>Profile active</span><span>Automated daily refresh</span></div>
         </div>
       </div>
 
       <div class="stat-card stat-card-wide" data-reveal>
         <div class="stat-card-head">
           <div class="stat-card-title">◆ LinkedIn</div>
-          <a class="stat-card-link" href="https://www.linkedin.com/in/sharma-ayushhh/" target="_blank" rel="noopener">Connect with me →</a>
+          <a class="stat-card-link" href="https://www.linkedin.com/in/sharma-ayushhh/" target="_blank" rel="noopener">@sharma-ayushhh →</a>
         </div>
         <div class="linkedin-metric">
           <div class="stat-num">6,000+</div>
           <div class="stat-label">Followers</div>
         </div>
-        <div class="linkedin-network" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <a class="linkedin-connect" href="https://www.linkedin.com/in/sharma-ayushhh/" target="_blank" rel="noopener"><span>in</span> Connect <i aria-hidden="true">↗</i></a>
       </div>
 
     </div>
@@ -953,8 +956,6 @@
     const value = document.querySelector(`[data-stat="${key}"]`)?.textContent || '0';
     return Number(value.replace(/[^\d.]/g,'')) || 0;
   }
-  document.getElementById('leetcodeSolvedTotal').textContent = numericStat('leetcode-solved').toLocaleString();
-
   // Copy the email directly while keeping mailto as the primary contact path.
   const copyEmail = document.getElementById('copyEmail');
   const copyEmailLabel = document.getElementById('copyEmailLabel');
