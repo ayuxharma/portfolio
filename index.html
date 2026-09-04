@@ -50,9 +50,8 @@
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
-      <a href="#stats">Stats</a>
+      <a href="#stats">Activity</a>
       <a href="#education">Education</a>
-      <a href="#achievements">Leadership</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-right">
@@ -116,6 +115,17 @@
         </div>
       </div>
     </div>
+    <div class="about-beyond" data-reveal>
+      <div class="about-beyond-label"><span>Beyond engineering</span><small>Leadership &amp; representation</small></div>
+      <div class="about-beyond-item">
+        <span>01</span>
+        <div><strong>Yuva Sangam Phase IV Delegate</strong><p>Selected for the national exchange with VNIT Nagpur under the Ministry of Education's Ek Bharat Shreshtha Bharat initiative.</p></div>
+      </div>
+      <div class="about-beyond-item">
+        <span>02</span>
+        <div><strong>NIT Srinagar representative on DD Kashir</strong><p>Represented the institute on DD Kashir's Youth Forum.</p><a href="https://www.youtube.com/watch?v=UbD5dfzVcWo&amp;t=865s" target="_blank" rel="noopener">Watch appearance ↗</a></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -123,11 +133,16 @@
   <div class="wrap">
     <div class="section-head">
       <h2 class="section-title">Projects</h2>
-      <div class="section-num">03 — projects</div>
+      <div class="section-num">02 — projects</div>
     </div>
-    <div class="project-carousel" data-reveal aria-roledescription="carousel" aria-label="Featured projects">
-      <div class="project-viewport">
-        <article class="project-stage" id="projectSlide" aria-live="polite">
+    <div class="project-showcase" data-reveal>
+      <aside class="project-index-panel" aria-label="Project directory">
+        <div class="project-index-head"><span>project.index</span><small>06 selected builds</small></div>
+        <div class="project-progress" id="projectProgress" aria-label="Choose a project"></div>
+      </aside>
+      <div class="project-carousel" aria-roledescription="carousel" aria-label="Featured project details">
+        <div class="project-viewport">
+          <article class="project-stage" id="projectSlide" aria-live="polite">
           <div class="project-stage-glow" aria-hidden="true"></div>
           <div class="project-kicker">
             <span id="projectIndex">01 / 06</span>
@@ -163,15 +178,15 @@
               </div>
             </div>
           </div>
-        </article>
+          </article>
+        </div>
+        <div class="project-navigation">
+          <button class="project-nav-button" id="projectPrev" type="button" aria-label="Previous project">←</button>
+          <span class="project-counter"><strong id="projectCurrent">01</strong> / <span id="projectTotal">06</span></span>
+          <button class="project-nav-button project-nav-next" id="projectNext" type="button" aria-label="Next project">Next <span>→</span></button>
+        </div>
+        <p class="project-gesture">Select any project title, swipe, or use the arrow keys.</p>
       </div>
-      <div class="project-navigation">
-        <button class="project-nav-button" id="projectPrev" type="button" aria-label="Previous project">←</button>
-        <div class="project-progress" id="projectProgress" aria-label="Choose a project"></div>
-        <span class="project-counter"><strong id="projectCurrent">01</strong> / <span id="projectTotal">06</span></span>
-        <button class="project-nav-button project-nav-next" id="projectNext" type="button" aria-label="Next project">Next <span>→</span></button>
-      </div>
-      <p class="project-gesture">Swipe, use arrow keys, or choose a marker to explore.</p>
     </div>
   </div>
 </section>
@@ -180,46 +195,63 @@
   <div class="wrap">
     <div class="section-head">
       <h2 class="section-title">Experience</h2>
-      <div class="section-num">04 — history</div>
+      <div class="section-num">03 — career.log</div>
     </div>
-    <div class="timeline experience-ledger">
+    <div class="experience-board">
+      <aside class="experience-rail" data-reveal aria-label="Career timeline from 2024 to present">
+        <span>career.log</span>
+        <strong>NOW</strong>
+        <div class="experience-rail-line" aria-hidden="true"><i></i><i></i><i></i></div>
+        <strong>2024</strong>
+      </aside>
 
-      <div class="timeline-item" data-reveal>
-        <div class="timeline-index" aria-hidden="true">01</div>
-        <div class="timeline-meta">
-          <div><span class="timeline-role">Associate Software Engineer</span> · <span class="timeline-company">Oracle</span></div>
-          <div class="timeline-date">Sep 2025 — Present · Bengaluru</div>
+      <div class="experience-entries">
+        <article class="experience-card experience-card-featured" data-reveal>
+          <header class="experience-card-head">
+            <div class="experience-company"><span class="experience-live-dot" aria-hidden="true"></span>Oracle</div>
+            <div class="experience-date">Sep 2025 — Present · Bengaluru</div>
+          </header>
+          <h3>Associate Software Engineer</h3>
+          <p class="experience-summary">Engineering production integrations, automation, and cloud operations for enterprise delivery.</p>
+          <div class="experience-metrics" aria-label="Selected impact metrics">
+            <div><strong>30</strong><span>files / day automated</span></div>
+            <div><strong>15</strong><span>daily API failures eliminated</span></div>
+            <div><strong>~80%</strong><span>less decommissioning effort</span></div>
+            <div><strong>~75%</strong><span>less operational overhead</span></div>
+          </div>
+          <ul class="experience-impact-list">
+            <li>Engineer and operate a production OIC integration suite on Oracle ERP Cloud, automating GL Journal FBDI ingestion across four payment-source systems with zero manual intervention.</li>
+            <li>Eliminated ~15 daily API failures (<code>429 Too Many Requests</code>) in a scheduled Oracle GL-to-IT2 integration by redesigning it on OIC to use static configuration-driven lookups instead of runtime REST calls.</li>
+            <li>Built a Python automation utility using OAuth and REST APIs to manage six asset types across customer environments, reducing tenant-decommissioning effort by approximately 80%.</li>
+            <li>Deployed a serverless OCI housekeeping function with pagination and automated copy-validation checks, reducing operational overhead by approximately 75%.</li>
+            <li>Led end-to-end disaster-recovery testing on Oracle ERP Cloud, validating data flow and failover readiness.</li>
+          </ul>
+        </article>
+
+        <div class="experience-supporting">
+          <article class="experience-card experience-card-compact" data-reveal>
+            <header class="experience-card-head">
+              <div class="experience-company">Frost &amp; Sullivan</div>
+              <div class="experience-date">Apr — Jul 2025 · Mumbai</div>
+            </header>
+            <h3>Growth Opportunity Analyst Intern</h3>
+            <p>Synthesized industry data, competitive landscapes, and emerging technology trends into structured opportunity assessments and decision-ready research.</p>
+          </article>
+
+          <article class="experience-card experience-card-compact" data-reveal>
+            <header class="experience-card-head">
+              <div class="experience-company">NIT Srinagar</div>
+              <div class="experience-date">May 2024 — Jul 2025 · Srinagar</div>
+            </header>
+            <h3>Campus Recruitment Coordinator</h3>
+            <ul>
+              <li>Built relationships with 80+ companies to expand the recruitment pipeline.</li>
+              <li>Managed placement data for 1,000+ students across eligibility, coordination, and reporting.</li>
+              <li>Coordinated complete placement drives across recruiters, students, and institute stakeholders.</li>
+            </ul>
+          </article>
         </div>
-        <ul class="timeline-points">
-          <li>Engineer and operate a production OIC integration suite on Oracle ERP Cloud, automating GL Journal FBDI ingestion across four payment-source systems at roughly 30 files per day with zero manual intervention.</li>
-          <li>Built a Python automation utility using OAuth and REST APIs to stop, deactivate, and delete six asset types across customer environments, reducing tenant-decommissioning effort by approximately 80%.</li>
-          <li>Deployed a serverless OCI housekeeping function with paginated API calls and automated copy-validation checks, reducing operational overhead by approximately 75% while strengthening data-integrity assurance.</li>
-          <li>Led end-to-end disaster-recovery testing on Oracle ERP Cloud, validating data flow and failover readiness.</li>
-        </ul>
       </div>
-
-      <div class="timeline-item" data-reveal>
-        <div class="timeline-index" aria-hidden="true">02</div>
-        <div class="timeline-meta">
-          <div><span class="timeline-role">Growth Opportunity Analyst Intern</span> · <span class="timeline-company">Frost &amp; Sullivan</span></div>
-          <div class="timeline-date">Apr 2025 — Jul 2025 · Mumbai</div>
-        </div>
-        <div class="timeline-desc">Synthesized industry data, competitive landscapes, and emerging technology trends into structured opportunity assessments and decision-ready research.</div>
-      </div>
-
-      <div class="timeline-item" data-reveal>
-        <div class="timeline-index" aria-hidden="true">03</div>
-        <div class="timeline-meta">
-          <div><span class="timeline-role">Campus Recruitment Coordinator</span> · <span class="timeline-company">NIT Srinagar</span></div>
-          <div class="timeline-date">May 2024 — Jul 2025 · Srinagar</div>
-        </div>
-        <ul class="timeline-points">
-          <li>Engaged with 80+ companies to strengthen industry relationships and broaden the institute's recruitment pipeline.</li>
-          <li>Managed and analyzed placement data for more than 1,000 students, supporting accurate eligibility checks, coordination, and reporting.</li>
-          <li>Coordinated end-to-end placement drives across recruiters, students, and institute stakeholders—from scheduling and pre-placement communication through assessments, interviews, and offer follow-ups.</li>
-        </ul>
-      </div>
-
     </div>
   </div>
 </section>
@@ -228,34 +260,44 @@
   <div class="wrap">
     <div class="section-head">
       <h2 class="section-title">Skills</h2>
-      <div class="section-num">02 — toolbox</div>
+      <div class="section-num">04 — capabilities</div>
     </div>
-
-    <div class="skills-panel" data-reveal>
-      <div class="skills-bar">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <div class="skills-bar-title">stack.json</div>
+    <div class="capability-board" data-reveal>
+      <div class="capability-intro">
+        <div><span>working.stack</span><strong>Tools grouped by how I use them.</strong></div>
+        <p>Not a keyword cloud—these are the languages, platforms, and concepts I use to move systems from idea to production.</p>
       </div>
-      <div class="skills-body">
-        <div class="skills-tabs" id="skillsTabs">
-          <button class="skills-tab active" data-cat="languages">Languages <span class="count">04</span></button>
-          <button class="skills-tab" data-cat="cloud">Cloud &amp; infra <span class="count">09</span></button>
-          <button class="skills-tab" data-cat="tools">Tools &amp; frameworks <span class="count">06</span></button>
-          <button class="skills-tab" data-cat="ai">AI &amp; automation <span class="count">04</span></button>
-          <button class="skills-tab" data-cat="concepts">Core concepts <span class="count">06</span></button>
-        </div>
-        <div class="skills-code" id="skillsCode"></div>
+      <div class="capability-lanes">
+        <article class="capability-lane">
+          <span class="capability-index">01</span>
+          <div class="capability-name"><strong>Build</strong><small>applications &amp; APIs</small></div>
+          <div class="capability-items"><span>C++</span><span>Python</span><span>SQL</span><span>PL/SQL</span><span>FastAPI</span><span>REST APIs</span><span>Oracle APEX</span><span>Oracle Visual Builder</span></div>
+        </article>
+        <article class="capability-lane">
+          <span class="capability-index">02</span>
+          <div class="capability-name"><strong>Operate</strong><small>cloud &amp; delivery</small></div>
+          <div class="capability-items"><span>OCI</span><span>Oracle Integration Cloud</span><span>Oracle ERP Cloud</span><span>Serverless Functions</span><span>Docker</span><span>Redis</span><span>OAuth</span><span>JWT</span><span>CI/CD</span><span>Git</span></div>
+        </article>
+        <article class="capability-lane">
+          <span class="capability-index">03</span>
+          <div class="capability-name"><strong>Intelligence</strong><small>AI &amp; automation</small></div>
+          <div class="capability-items"><span>AI Systems</span><span>LLM Integration</span><span>RAG</span><span>LangGraph</span><span>Process Automation</span><span>Root-Cause Analysis</span></div>
+        </article>
+        <article class="capability-lane">
+          <span class="capability-index">04</span>
+          <div class="capability-name"><strong>Reason</strong><small>systems foundations</small></div>
+          <div class="capability-items"><span>Distributed Systems</span><span>System Design</span><span>Operating Systems</span><span>Computer Networks</span><span>DBMS</span></div>
+        </article>
       </div>
     </div>
-
   </div>
 </section>
 
 <section id="stats">
   <div class="wrap">
     <div class="section-head">
-      <h2 class="section-title">Stats</h2>
-      <div class="section-num">05 — github · leetcode · linkedin</div>
+      <h2 class="section-title">Engineering activity</h2>
+      <div class="section-num">05 — github · leetcode</div>
     </div>
     <div class="stats-grid">
 
@@ -301,18 +343,6 @@
         </div>
       </div>
 
-      <div class="stat-card stat-card-wide" data-reveal>
-        <div class="stat-card-head">
-          <div class="stat-card-title">◆ LinkedIn</div>
-          <a class="stat-card-link" href="https://www.linkedin.com/in/sharma-ayushhh/" target="_blank" rel="noopener">@sharma-ayushhh →</a>
-        </div>
-        <div class="linkedin-metric">
-          <div class="stat-num">6,000+</div>
-          <div class="stat-label">Followers</div>
-        </div>
-        <a class="linkedin-connect" href="https://www.linkedin.com/in/sharma-ayushhh/" target="_blank" rel="noopener"><span>in</span> Connect <i aria-hidden="true">↗</i></a>
-      </div>
-
     </div>
   </div>
 </section>
@@ -320,8 +350,8 @@
 <section id="education">
   <div class="wrap">
     <div class="section-head">
-      <h2 class="section-title">Education</h2>
-      <div class="section-num">07 — academics</div>
+      <h2 class="section-title">Education &amp; credentials</h2>
+      <div class="section-num">06 — foundation</div>
     </div>
     <div class="edu-list">
 
@@ -342,77 +372,21 @@
       </div>
 
     </div>
-  </div>
-</section>
-
-<section id="certifications">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-title">Certifications</h2>
-      <div class="section-num">06 — credentials</div>
-    </div>
-    <div class="cert-grid">
-      <article class="cert-card" data-reveal>
-        <div class="cert-card-top"><span class="cert-index">credential_01</span><span class="cert-domain">Generative AI</span></div>
-        <div class="cert-name">Oracle Cloud Infrastructure 2025 Certified Generative AI Professional</div>
-        <div class="cert-footer"><span class="oracle-dot"></span>Oracle · 2025</div>
-      </article>
-      <article class="cert-card" data-reveal>
-        <div class="cert-card-top"><span class="cert-index">credential_02</span><span class="cert-domain">Integration</span></div>
-        <div class="cert-name">Application Integration on Oracle Cloud</div>
-        <div class="cert-footer"><span class="oracle-dot"></span>Oracle · Cloud</div>
-      </article>
-      <article class="cert-card" data-reveal>
-        <div class="cert-card-top"><span class="cert-index">credential_03</span><span class="cert-domain">AI Foundations</span></div>
-        <div class="cert-name">Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</div>
-        <div class="cert-footer"><span class="oracle-dot"></span>Oracle · 2025</div>
-      </article>
-      <article class="cert-card" data-reveal>
-        <div class="cert-card-top"><span class="cert-index">credential_04</span><span class="cert-domain">Cloud</span></div>
-        <div class="cert-name">Oracle Certified Foundations Associate</div>
-        <div class="cert-footer"><span class="oracle-dot"></span>Oracle · Foundation</div>
-      </article>
-      <article class="cert-card" data-reveal>
-        <div class="cert-card-top"><span class="cert-index">credential_05</span><span class="cert-domain">Fusion AI</span></div>
-        <div class="cert-name">Oracle Fusion AI Agent Studio Certified Foundations Associate</div>
-        <div class="cert-footer"><span class="oracle-dot"></span>Oracle · AI</div>
-      </article>
-      <article class="cert-card" data-reveal>
-        <div class="cert-card-top"><span class="cert-index">credential_06</span><span class="cert-domain">APEX</span></div>
-        <div class="cert-name">APEX Cloud Developer</div>
-        <div class="cert-footer"><span class="oracle-dot"></span>Oracle · Cloud development</div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="achievements">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-title">Beyond engineering</h2>
-      <div class="section-num">08 — leadership &amp; representation</div>
-    </div>
-    <div class="achievement-grid">
-      <article class="achievement-card" data-reveal>
-        <span class="achievement-number">01</span>
-        <div class="achievement-kicker">National exchange</div>
-        <h3 class="achievement-title">Yuva Sangam Phase IV Delegate</h3>
-        <p class="achievement-copy">Selected for the exchange program with VNIT Nagpur under the Ministry of Education's Ek Bharat Shreshtha Bharat initiative, inaugurated by the Prime Minister of India.</p>
-      </article>
-      <article class="achievement-card" data-reveal>
-        <span class="achievement-number">02</span>
-        <div class="achievement-kicker">Youth leadership</div>
-        <h3 class="achievement-title">NIT Srinagar Representative on DD Kashir</h3>
-        <p class="achievement-copy">Represented NIT Srinagar on DD Kashir's Youth Forum, acknowledged for youth leadership and serving as an institutional representative at the state level.</p>
-        <a class="achievement-link" href="https://www.youtube.com/watch?v=UbD5dfzVcWo&amp;t=865s" target="_blank" rel="noopener">Watch the appearance ↗</a>
-      </article>
+    <div class="credentials-compact" data-reveal>
+      <div class="credentials-intro"><span>Selected Oracle credentials</span><small>3 featured · 3 additional</small></div>
+      <div class="credentials-list">
+        <article><span>01 · Generative AI</span><strong>OCI 2025 Certified Generative AI Professional</strong></article>
+        <article><span>02 · Integration</span><strong>Application Integration on Oracle Cloud</strong></article>
+        <article><span>03 · Cloud development</span><strong>APEX Cloud Developer</strong></article>
+      </div>
+      <p class="credentials-more"><span>+03</span> Additional Oracle credentials across AI foundations, cloud foundations, and Fusion AI Agent Studio.</p>
     </div>
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap contact-block">
-    <div class="section-num">09 — get in touch</div>
+    <div class="section-num">07 — get in touch</div>
     <h2 class="big-cta contact-title">Get in touch.</h2>
     <p class="contact-lead">Have an idea, an opportunity, or a technical problem worth discussing? Send me a note or find me online.</p>
 
@@ -512,7 +486,7 @@
   }else{
     document.body.classList.add('reveal-ready');
 
-    document.querySelectorAll('.about-grid,.project-carousel,.timeline,.stats-grid,.edu-list,.cert-grid,.achievement-grid')
+    document.querySelectorAll('.about-grid,.about-beyond,.project-showcase,.experience-board,.capability-board,.stats-grid,.edu-list,.credentials-compact')
       .forEach(group=>{
         [...group.querySelectorAll(':scope > [data-reveal]')].forEach((el,index)=>{
           el.style.setProperty('--reveal-delay',Math.min(index,5) * 85 + 'ms');
@@ -806,12 +780,23 @@
   let swipeStartX = null;
 
   projectKeys.forEach((key,index)=>{
-    const dot = document.createElement('button');
-    dot.className = 'project-dot';
-    dot.type = 'button';
-    dot.setAttribute('aria-label', `Show project ${index + 1}: ${projectData[key].title}`);
-    dot.addEventListener('click', ()=>showProject(index, index < activeProject ? -1 : 1));
-    projectProgress.appendChild(dot);
+    const button = document.createElement('button');
+    const number = document.createElement('span');
+    const copy = document.createElement('span');
+    const title = document.createElement('strong');
+    const status = document.createElement('small');
+    button.className = 'project-index-button';
+    button.type = 'button';
+    number.className = 'project-index-number';
+    copy.className = 'project-index-copy';
+    number.textContent = String(index + 1).padStart(2,'0');
+    title.textContent = projectData[key].title;
+    status.textContent = projectData[key].status;
+    copy.append(title,status);
+    button.append(number,copy);
+    button.setAttribute('aria-label', `Show project ${index + 1}: ${projectData[key].title}`);
+    button.addEventListener('click', ()=>showProject(index, index < activeProject ? -1 : 1));
+    projectProgress.appendChild(button);
   });
 
   function fillProject(index){
@@ -838,10 +823,11 @@
       stack.appendChild(tag);
     });
 
-    [...projectProgress.children].forEach((dot,dotIndex)=>{
-      const selected = dotIndex === index;
-      dot.classList.toggle('active', selected);
-      dot.setAttribute('aria-current', selected ? 'true' : 'false');
+    [...projectProgress.children].forEach((button,buttonIndex)=>{
+      const selected = buttonIndex === index;
+      button.classList.toggle('active', selected);
+      button.setAttribute('aria-current', selected ? 'true' : 'false');
+      button.setAttribute('aria-pressed', String(selected));
     });
 
     projectGithub.hidden = !project.github;
@@ -897,65 +883,6 @@
     if(event.key === 'Escape' && modalOverlay.classList.contains('open')) closeProject();
   });
 
-  // Complete the existing interactive skills viewer.
-  const skillData = {
-    languages:{key:'languages',values:['C++','Python','SQL','PL/SQL']},
-    cloud:{key:'cloud_and_infrastructure',values:['Oracle Cloud Infrastructure (OCI)','Oracle Integration Cloud (OIC)','Oracle ERP Cloud','Oracle APEX','Oracle Visual Builder','Serverless Functions','REST APIs','OAuth','JWT']},
-    tools:{key:'tools_and_frameworks',values:['Docker','Git','LangGraph','FastAPI','Redis','CI/CD']},
-    ai:{key:'ai_and_automation',values:['LLM Integration','Retrieval-Augmented Generation (RAG)','AI Systems','Process Automation']},
-    concepts:{key:'core_concepts',values:['Distributed Systems','System Design','Root-Cause Analysis','Operating Systems','Computer Networks','DBMS']}
-  };
-
-  function renderSkills(category){
-    const skillsCode = document.getElementById('skillsCode');
-    skillsCode.replaceChildren();
-    const group = skillData[category];
-    const codeLines = [
-      [{type:'syntax-bracket',text:'{'}],
-      [{type:'syntax-space',text:'  '},{type:'syntax-key',text:`"${group.key}"`},{type:'syntax-punctuation',text:': '},{type:'syntax-bracket',text:'['}],
-      ...group.values.map((name,index)=>[
-        {type:'syntax-space',text:'    '},
-        {type:'syntax-string',text:`"${name}"`},
-        {type:'syntax-punctuation',text:index < group.values.length - 1 ? ',' : ''}
-      ]),
-      [{type:'syntax-space',text:'  '},{type:'syntax-bracket',text:']'}],
-      [{type:'syntax-bracket',text:'}'}]
-    ];
-    codeLines.forEach((tokens, index)=>{
-      const line = document.createElement('div');
-      line.className = 'line';
-      line.style.animationDelay = (index * 55) + 'ms';
-      const number = document.createElement('span');
-      number.className = 'ln';
-      number.textContent = index + 1;
-      const value = document.createElement('span');
-      value.className = 'val';
-      tokens.forEach(token=>{
-        const span = document.createElement('span');
-        span.className = token.type;
-        span.textContent = token.text;
-        value.appendChild(span);
-      });
-      line.append(number, value);
-      skillsCode.appendChild(line);
-    });
-  }
-
-  document.querySelectorAll('.skills-tab').forEach(tab=>{
-    tab.addEventListener('click', ()=>{
-      document.querySelectorAll('.skills-tab').forEach(item=>item.classList.remove('active'));
-      tab.classList.add('active');
-      renderSkills(tab.dataset.cat);
-    });
-  });
-  renderSkills('languages');
-
-  // Keep the LeetCode ledger synchronized with the same value rendered by the
-  // daily stats updater—no fabricated history or hard-coded trend.
-  function numericStat(key){
-    const value = document.querySelector(`[data-stat="${key}"]`)?.textContent || '0';
-    return Number(value.replace(/[^\d.]/g,'')) || 0;
-  }
   // Copy the email directly while keeping mailto as the primary contact path.
   const copyEmail = document.getElementById('copyEmail');
   const copyEmailLabel = document.getElementById('copyEmailLabel');
