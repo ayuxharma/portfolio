@@ -8,7 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=engineering-files">
+<link rel="stylesheet" href="styles.css?v=featured-projects">
 </head>
 <body>
 
@@ -109,10 +109,16 @@
       <div class="section-num">02 — projects</div>
     </div>
     <div class="project-files-intro" data-reveal>
-      <p>Selected engineering work, written as concise case files: what needed solving, how I built it, and what the finished system delivers.</p>
-      <span>06 files · primary details always visible</span>
+      <span>02 featured · 04 additional</span>
     </div>
     <div class="project-files" id="projectFiles"></div>
+    <div class="project-more">
+      <header class="project-more-head">
+        <div><span>More projects</span><strong>Additional builds</strong></div>
+        <small>04 / directory</small>
+      </header>
+      <div class="project-more-grid" id="projectArchive"></div>
+    </div>
   </div>
 </section>
 
@@ -190,7 +196,6 @@
     <div class="capability-board" data-reveal>
       <div class="capability-intro">
         <div><span>working.stack</span><strong>Tools grouped by how I use them.</strong></div>
-        <p>Not a keyword cloud—these are the languages, platforms, and concepts I use to move systems from idea to production.</p>
       </div>
       <div class="capability-lanes">
         <article class="capability-lane">
@@ -619,6 +624,7 @@
   };
 
   const projectFiles = document.getElementById('projectFiles');
+  const projectArchive = document.getElementById('projectArchive');
   const projectEntries = Object.entries(projectData);
 
   function makeElement(tagName,className,text){
@@ -629,7 +635,43 @@
   }
 
   projectEntries.forEach(([projectKey,project],index)=>{
-    const article = makeElement('article',`project-file${index < 2 ? ' project-file-featured' : ''}`);
+    if(index >= 2){
+      const compact = makeElement('article','project-compact');
+      compact.id = `project-${projectKey}`;
+
+      const compactMeta = makeElement('div','project-compact-meta');
+      compactMeta.append(
+        makeElement('span','',String(index + 1).padStart(2,'0')),
+        makeElement('small','',project.status)
+      );
+
+      const compactTitle = makeElement('h3','project-compact-title',project.title);
+      const compactSummary = makeElement('p','project-compact-summary',project.tagline);
+      const compactFooter = makeElement('div','project-compact-footer');
+      const compactStack = makeElement('div','project-compact-stack');
+      project.tags.slice(0,4).forEach(tagName=>compactStack.appendChild(makeElement('span','',tagName)));
+      const compactLinks = makeElement('div','project-compact-links');
+      if(project.github){
+        const github = makeElement('a','','GitHub ↗');
+        github.href = project.github;
+        github.target = '_blank';
+        github.rel = 'noopener';
+        compactLinks.appendChild(github);
+      }
+      if(project.demo){
+        const demo = makeElement('a','','Demo ↗');
+        demo.href = project.demo;
+        demo.target = '_blank';
+        demo.rel = 'noopener';
+        compactLinks.appendChild(demo);
+      }
+      compactFooter.append(compactStack,compactLinks);
+      compact.append(compactMeta,compactTitle,compactSummary,compactFooter);
+      projectArchive.appendChild(compact);
+      return;
+    }
+
+    const article = makeElement('article','project-file project-file-featured');
     article.id = `project-${projectKey}`;
 
     const header = makeElement('header','project-file-head');
@@ -675,7 +717,7 @@
     footer.append(stack,links);
 
     const technical = makeElement('details','project-file-technical');
-    if(index < 2) technical.open = true;
+    technical.open = true;
     technical.appendChild(makeElement('summary','','Architecture & implementation flow'));
     const architecture = makeElement('div','project-file-architecture');
     project.architecture.forEach((nodeData,nodeIndex)=>{
@@ -696,7 +738,7 @@
     projectFiles.appendChild(article);
   });
 
-  projectFiles.querySelectorAll('a,summary').forEach(element=>{
+  document.querySelectorAll('#projectFiles a,#projectFiles summary,#projectArchive a').forEach(element=>{
     element.addEventListener('mouseenter',()=>ring.classList.add('hover'));
     element.addEventListener('mouseleave',()=>ring.classList.remove('hover'));
   });
